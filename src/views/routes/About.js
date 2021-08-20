@@ -3,6 +3,7 @@ import { dbService } from "../firebase";
 import Nweet from "./Nweet";
 
 const About = ({userObj}) => {
+    console.log(userObj);
     const [nweet, setNweet] = useState("");
     const [nweets, setNweets] = useState([]);
 
@@ -34,7 +35,7 @@ const About = ({userObj}) => {
         await dbService.collection("nweets").add({
             text: nweet,
             createdAt: Date.now(),
-            creatorId: userObj.uid,
+            // creatorId: userObj.uid,
         });
         setNweet("")
     };
@@ -45,7 +46,7 @@ const About = ({userObj}) => {
         } = event;
         setNweet(value);
     };
-    console.log(nweets);
+    // console.log(nweets);
     return (
         <div>
             <form onSubmit={onSubmit}>
