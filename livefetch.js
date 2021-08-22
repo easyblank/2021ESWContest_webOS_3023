@@ -17,25 +17,26 @@ cloudDB.settings({ timestampsInSnapshots: true });
 const list = document.querySelector('#list');
 
 function renderList(doc) {
-    let id = document.createElement('div');
+    let idForDiv = document.createElement('div');
     let name = document.createElement('h2');
     let sec = document.createElement('li');
     let gen = document.createElement('li');
 
-    id.setAttribute('id',doc.data().ID)
+    idForDiv.setAttribute('id',doc.data().ID)
     name.innerHTML = doc.data().NameOfStd;
     sec.innerHTML = '유통기한: '+ doc.data().Section;
     gen.innerHTML = '메모: '+ doc.data().Gender;
+    
 
-    id.appendChild(name);
-    id.appendChild(sec);
-    id.appendChild(gen);
+    idForDiv.appendChild(name);
+    idForDiv.appendChild(sec);
+    idForDiv.appendChild(gen);
 
-    list.appendChild(id);
+    list.appendChild(idForDiv);
 
 }
 
-cloudDB.collection('Submit').get().then((snapshot) => {
+cloudDB.collection('Submit').onSnapshot((snapshot) => {
     snapshot.docs.forEach(doc => {
         renderList(doc);
     })
