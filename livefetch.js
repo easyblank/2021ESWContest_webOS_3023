@@ -24,8 +24,8 @@ function renderList(doc) {
 
     id.setAttribute('id',doc.data().ID)
     name.innerHTML = doc.data().NameOfStd;
-    sec.innerHTML = doc.data().Section;
-    gen.innerHTML = doc.data().Gender;
+    sec.innerHTML = '유통기한: '+ doc.data().Section;
+    gen.innerHTML = '메모: '+ doc.data().Gender;
 
     id.appendChild(name);
     id.appendChild(sec);

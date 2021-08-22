@@ -4,15 +4,10 @@
     box-sizing: border-box;
 }
 
-body {
+.container {
     width: 800px;
     height: 480px;
-    background-color: aliceblue;
-}
-
-.container {
-    width: 100%;
-    height: 100%;
+    background-color: red;
     display: grid;
     grid-template-columns: 200px 400px 200px;
     grid-template-areas: 'nfc-app main-section noti';
