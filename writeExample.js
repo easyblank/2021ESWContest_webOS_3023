@@ -38,6 +38,7 @@ function Add_Doc_WithID(){
       {
           NameOfStd: productName,
           Section: dDay,
+          ID: id,
           Gender: memo
       }
   )
