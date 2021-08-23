@@ -14,7 +14,7 @@ firebase.initializeApp(firebaseConfig);
 let cloudDB = firebase.firestore();
 cloudDB.settings({ timestampsInSnapshots: true });
 
-const list = document.querySelector('#list');
+const list = document.getElementById('list');
 
 function renderList(doc) {
     let idForDiv = document.createElement('div');
@@ -32,11 +32,17 @@ function renderList(doc) {
     idForDiv.appendChild(sec);
     idForDiv.appendChild(gen);
 
+
     list.appendChild(idForDiv);
 
 }
 
 cloudDB.collection('Submit').onSnapshot((snapshot) => {
+    //원래있던 내용 다 지워버리고
+    while ( list.hasChildNodes() ) { 
+        list.removeChild( list.firstChild );
+    }
+    //새로 쓰기
     snapshot.docs.forEach(doc => {
         renderList(doc);
     })
