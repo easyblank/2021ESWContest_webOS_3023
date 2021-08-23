@@ -1,0 +1,5 @@
+source "C:/Users/suyon/esp-idf-v4.1.2/components/app_update/Kconfig.projbuild"
+source "C:/Users/suyon/esp-idf-v4.1.2/components/bootloader/Kconfig.projbuild"
+source "C:/Users/suyon/esp-idf-v4.1.2/components/esptool_py/Kconfig.projbuild"
+source "C:/Users/suyon/esp-idf-v4.1.2/components/partition_table/Kconfig.projbuild"
+source "C:/Users/suyon/eclipse-workspace/noti/main/Kconfig.projbuild"
