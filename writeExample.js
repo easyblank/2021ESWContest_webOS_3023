@@ -57,6 +57,36 @@ function Add_Doc_WithID(){
   });
 }
 
+//Updating function
+function Update_Fields_inDocument(){
+  cloudDB.collection("Submit").doc(id).update(
+    {
+      NameOfStd: productName,
+      Section: dDay,
+      Gender: memo
+    }
+  )
+  .then(function (docRef) {
+    console.log("Document updated with ID", rollV);
+  })
+  .catch(function (error) {
+    console.error("Error updating document", error);
+  });
+}
+
+//checking function
+function Checking_inDocument(){
+  cloudDB.collection("Submit").doc(id).get()
+  .then(function(doc){
+    if(doc.exists){
+      Update_Fields_inDocument();
+    } else {
+      Add_Doc_WithID();
+    }
+  })
+}
+
+
 if ("NDEFReader" in window){
   var flag;
   console.log(flag);
@@ -96,7 +126,7 @@ if ("NDEFReader" in window){
         }
         
         console.log("submit clicked for scan")
-        Add_Doc_WithID();
+        Checking_inDocument();
 
         
 
