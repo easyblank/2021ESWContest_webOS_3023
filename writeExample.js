@@ -37,8 +37,8 @@ function Add_Doc_WithID(){
   cloudDB.collection("Submit").doc(id).set(
       {
           NameOfStd: productName,
-          Section: dDay,
           ID: id,
+          Section: dDay,
           Gender: memo
       }
   )
