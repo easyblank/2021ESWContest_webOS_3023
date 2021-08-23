@@ -23,6 +23,8 @@ function renderList(doc) {
     let gen = document.createElement('li');
 
     idForDiv.setAttribute('id',doc.data().ID)
+    gen.setAttribute('style','display:none'); //팝업으로 띄울 땐 다시 보이게 해서 읽을 수 있도록 해야될 듯
+    sec.setAttribute('style','display:none');
     name.innerHTML = doc.data().Product;
     sec.innerHTML = '유통기한: '+ doc.data().Dday;
     gen.innerHTML = '메모: '+ doc.data().Memo;
