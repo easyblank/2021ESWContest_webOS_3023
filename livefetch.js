@@ -23,9 +23,9 @@ function renderList(doc) {
     let gen = document.createElement('li');
 
     idForDiv.setAttribute('id',doc.data().ID)
-    name.innerHTML = doc.data().NameOfStd;
-    sec.innerHTML = '유통기한: '+ doc.data().Section;
-    gen.innerHTML = '메모: '+ doc.data().Gender;
+    name.innerHTML = doc.data().Product;
+    sec.innerHTML = '유통기한: '+ doc.data().Dday;
+    gen.innerHTML = '메모: '+ doc.data().Memo;
     
 
     idForDiv.appendChild(name);
@@ -37,7 +37,7 @@ function renderList(doc) {
 
 }
 
-cloudDB.collection('Submit').onSnapshot((snapshot) => {
+cloudDB.collection('nfcTag').onSnapshot((snapshot) => {
     //원래있던 내용 다 지워버리고
     while ( list.hasChildNodes() ) { 
         list.removeChild( list.firstChild );
