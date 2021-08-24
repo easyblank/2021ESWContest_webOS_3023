@@ -1,3 +1,4 @@
+//tts for nfc-section--------------------//
 var nfcSection = document.getElementById('list');
 
 nfcSection.addEventListener('click', (event)=>{
@@ -24,3 +25,5 @@ nfcSection.addEventListener('click', (event)=>{
         window.speechSynthesis.speak(utter);
     }
 })
+
+//-------------------------------------//

@@ -23,10 +23,10 @@
             <!--digital clock start-->
             <div class="datetime">
                 <div class="date">
-                    <span id="dayname">Day</span>,
-                    <span id="month">Month</span>
-                    <span id="daynum">00</span>,
                     <span id="year">Year</span>
+                    <span id="month">Month</span>
+                    <span id="daynum">00</span>
+                    <span id="dayname">Day</span>
                 </div>
                 <div class="time">
                     <span id="hour">00</span>:
@@ -40,7 +40,7 @@
             <!-- weather start -->
             <div class="weather">
                 <div class="app-title">
-                    <p>Weather</p>
+                    <p>날씨</p>
                 </div>
                 <div class="notification"> </div>
                 <div class="weather-container">
@@ -72,7 +72,8 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 <script src="./nfc-app/livefetch.js"></script>
-<script src="./nfc-app/nfc-tts.js"></script>
 <script src="./main-section/digital-clock/digital-clock.js"></script>
 <script src="./main-section/weather/weather.js"></script>
+<!-- for blind people -->
+<script src="./touch-tts.js"></script>
 </html>

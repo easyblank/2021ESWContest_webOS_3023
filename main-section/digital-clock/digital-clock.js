@@ -24,10 +24,10 @@ function updateClock() {
         return n;
     }
 
-    var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
-    var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var months = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"];
+    var week = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
     var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
-    var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+    var values = [week[dname], months[mo], dnum.pad(2)+'일', yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
     for (var i = 0; i < ids.length; i++)
         document.getElementById(ids[i]).firstChild.nodeValue = values[i];
 }
