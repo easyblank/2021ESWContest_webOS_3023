@@ -5,11 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Dashboard</title>
+    <!-- Homedashboard -->
     <link rel="stylesheet" href="./grid.css">
+    <!-- nfc section -->
     <link rel="stylesheet" href="./nfc-app/nfc-app.css">
+    <!-- digital clock section -->
     <link rel="stylesheet" href="./main-section/digital-clock/digital-clock.css">
+    <!-- weather section -->
     <link rel="stylesheet" href="./main-section/weather/weather.css">
 </head>
+
 <body onload="initClock()">
     <div class="container">
         <!-- nfc section -->
@@ -21,37 +26,34 @@
         <div class="main-section">
 
             <!--digital clock start-->
-            <div class="datetime">
-                <div class="date">
-                    <span id="year">Year</span>
+            <div class="datetime" id="datetime">
+                <div class="date" id='date'>
+                    <span id="year">Year</span>년
                     <span id="month">Month</span>
                     <span id="daynum">00</span>
                     <span id="dayname">Day</span>
                 </div>
                 <div class="time">
                     <span id="hour">00</span>:
-                    <span id="minutes">00</span>:
-                    <span id="seconds">00</span>
-                    <span id="period">AM</span>
+                    <span id="minutes">00</span>
+                    <span id="period">오전</span>
                 </div>
             </div>
             <!--digital clock end-->
 
             <!-- weather start -->
-            <div class="weather">
-                <div class="app-title">
-                    <p>날씨</p>
-                </div>
+            <div class="weather" id="weather">
+                <!-- lacation block에 관한 div. 자세한 사항은 js 주석처리부분 -->
                 <div class="notification"> </div>
                 <div class="weather-container">
                     <div class="weather-icon">
                         <img src="./main-section/weather/icons/unknown.png" alt="">
                     </div>
                     <div class="temperature-value">
-                        <p>- °<span>C</span></p>
+                        <p id="temp">- °<span>C</span></p>
                     </div>
                     <div class="temperature-description">
-                        <p> - </p>
+                        <p id="weath"> - </p>
                     </div>
                     <div class="location">
                         <p>-</p>
@@ -67,12 +69,15 @@
     </div>
     
 </body>
-
+<!-- firebase cdn -->
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<!-- nfc section -->
 <script src="./nfc-app/livefetch.js"></script>
+<!-- digital clock section -->
 <script src="./main-section/digital-clock/digital-clock.js"></script>
+<!-- weather section -->
 <script src="./main-section/weather/weather.js"></script>
 <!-- for blind people -->
 <script src="./touch-tts.js"></script>

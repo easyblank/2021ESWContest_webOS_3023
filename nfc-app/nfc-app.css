@@ -5,4 +5,6 @@
 
 .nfc-app div {
     border: 1px solid black;
+    /* height: 90px;
+    overflow: hidden; */
 }

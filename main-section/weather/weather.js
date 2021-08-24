@@ -53,8 +53,9 @@ setPosition();
 
 
 // GET WEATHER FROM API PROVIDER
+//나라, 도시 설정은 여기서!
 function getWeather(latitude, longitude){
-    let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+    let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&lang=kr`; //language korean에 관한 내용은 api 참고
     
     fetch(api)
         .then(function(response){
@@ -65,8 +66,8 @@ function getWeather(latitude, longitude){
             weather.temperature.value = Math.floor(data.main.temp - KELVIN);
             weather.description = data.weather[0].description;
             weather.iconId = data.weather[0].icon;
-            weather.city = data.name;
-            weather.country = data.sys.country;
+            weather.city = data.name; //동이름
+            weather.country = data.sys.country; //나라이름
         })
         .then(function(){
             displayWeather();
@@ -74,31 +75,33 @@ function getWeather(latitude, longitude){
 }
 
 // DISPLAY WEATHER TO UI
+//나라, 도시 설정은 여기서!
 function displayWeather(){
     iconElement.innerHTML = `<img src="./main-section/weather/icons/${weather.iconId}.png"/>`;
     tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
     descElement.innerHTML = weather.description;
-    locationElement.innerHTML = `${weather.city}, ${weather.country}`;
+    locationElement.innerHTML = `${weather.city}, ${weather.country}`; //그냥 한글로 수정하든가
 }
 
+//--------클릭하면 섭씨에서 화씨로 바뀌는 함수. 근데 필요없겠지 뭐---------//
 // C to F conversion
-function celsiusToFahrenheit(temperature){
-    return (temperature * 9/5) + 32;
-}
+// function celsiusToFahrenheit(temperature){
+//     return (temperature * 9/5) + 32;
+// }
 
 // WHEN THE USER CLICKS ON THE TEMPERATURE ELEMENET
-tempElement.addEventListener("click", function(){
-    if(weather.temperature.value === undefined) return;
+// tempElement.addEventListener("click", function(){
+//     if(weather.temperature.value === undefined) return;
     
-    if(weather.temperature.unit == "celsius"){
-        let fahrenheit = celsiusToFahrenheit(weather.temperature.value);
-        fahrenheit = Math.floor(fahrenheit);
+//     if(weather.temperature.unit == "celsius"){
+//         let fahrenheit = celsiusToFahrenheit(weather.temperature.value);
+//         fahrenheit = Math.floor(fahrenheit);
         
-        tempElement.innerHTML = `${fahrenheit}°<span>F</span>`;
-        weather.temperature.unit = "fahrenheit";
-    }else{
-        tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
-        weather.temperature.unit = "celsius"
-    }
-});
-
+//         tempElement.innerHTML = `${fahrenheit}°<span>F</span>`;
+//         weather.temperature.unit = "fahrenheit";
+//     }else{
+//         tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+//         weather.temperature.unit = "celsius"
+//     }
+// });
+//------------------------------------------------------------//

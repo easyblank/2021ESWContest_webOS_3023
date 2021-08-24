@@ -13,9 +13,12 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 let cloudDB = firebase.firestore();
 cloudDB.settings({ timestampsInSnapshots: true });
+//--------------------------//
 
+//<ul>에 요소들을 추가할 준비를 한다
 const list = document.getElementById('list');
 
+//firestore에서 값을 받아 온 뒤 변수에 저장하고 append하는 함수
 function renderList(doc) {
     let idForDiv = document.createElement('div');
     let name = document.createElement('h2');
@@ -37,6 +40,7 @@ function renderList(doc) {
 
 }
 
+//nfcTag collention의 snapshot을 지켜보는 함수
 cloudDB.collection('nfcTag').onSnapshot((snapshot) => {
     //원래있던 내용 다 지워버리고
     while ( list.hasChildNodes() ) { 
