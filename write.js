@@ -105,7 +105,7 @@ function Modify_inDocument(){
 
 //등록하려는 nfc tag가 firestore에 존재하는 태그인지 체크하고 새롭게 등록하거나 수정해주는 함수
 function Check_and_do_inDocument() {
-    cloudDB.collection("Submit").doc(id).get()
+    cloudDB.collection("nfcTag").doc(id).get()
     .then(function (doc) {
         if (doc.exists) {
             Modify_inDocument();
