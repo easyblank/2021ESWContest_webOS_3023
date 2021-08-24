@@ -6,12 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Dashboard</title>
     <link rel="stylesheet" href="./grid.css">
-    <link rel="stylesheet" href="./nfc-app.css">
+    <link rel="stylesheet" href="./nfc-app/nfc-app.css">
+    <link rel="stylesheet" href="./main-section/digital-clock/digital-clock.css">
+    <link rel="stylesheet" href="./main-section/weather/weather.css">
 </head>
-<body>
+<body onload="initClock()">
     <div class="container">
-        <div class="nfc-app"><ul id="list"></ul></div>
-        <div class="main-section">main-section</div>
+        <!-- nfc section -->
+        <div class="nfc-app">
+            <ul id="list"></ul>
+        </div>
+
+        <!-- main section : clock weather selection -->
+        <div class="main-section">
+
+            <!--digital clock start-->
+            <div class="datetime">
+                <div class="date">
+                    <span id="dayname">Day</span>,
+                    <span id="month">Month</span>
+                    <span id="daynum">00</span>,
+                    <span id="year">Year</span>
+                </div>
+                <div class="time">
+                    <span id="hour">00</span>:
+                    <span id="minutes">00</span>:
+                    <span id="seconds">00</span>
+                    <span id="period">AM</span>
+                </div>
+            </div>
+            <!--digital clock end-->
+
+            <!-- weather start -->
+            <div class="weather">
+                <div class="app-title">
+                    <p>Weather</p>
+                </div>
+                <div class="notification"> </div>
+                <div class="weather-container">
+                    <div class="weather-icon">
+                        <img src="./main-section/weather/icons/unknown.png" alt="">
+                    </div>
+                    <div class="temperature-value">
+                        <p>- °<span>C</span></p>
+                    </div>
+                    <div class="temperature-description">
+                        <p> - </p>
+                    </div>
+                    <div class="location">
+                        <p>-</p>
+                    </div>
+                </div>
+            </div>
+            <!-- weather end -->
+
+        </div>
+
+        <!-- noti section -->
         <div class="noti">noti</div>
     </div>
     
@@ -20,6 +71,8 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-<script src="./livefetch.js"></script>
-<script src="./nfc-section.js"></script>
+<script src="./nfc-app/livefetch.js"></script>
+<script src="./nfc-app/nfc-tts.js"></script>
+<script src="./main-section/digital-clock/digital-clock.js"></script>
+<script src="./main-section/weather/weather.js"></script>
 </html>

@@ -2,3 +2,7 @@
     height: 480px;
     overflow: scroll;
 }
+
+.nfc-app div {
+    border: 1px solid black;
+}
