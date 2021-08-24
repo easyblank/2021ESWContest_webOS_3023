@@ -17,7 +17,8 @@ const firebaseConfig = {
 
 
 //변수를 선언해 준다
-let submit = document.getElementById("submit"); // 버튼 클릭을 인식하기 위한 변수
+// 버튼 클릭을 인식하기 위한 변수
+let submit = document.getElementById("submit");
 
 //input에 적혀있는 내용들을 받아오기 위한 변수
 let p = document.getElementById("productName");
@@ -87,9 +88,9 @@ function New_submit() {
 function Modify_inDocument(){
     cloudDB.collection("nfcTag").doc(id).update(
         {
-            NameOfStd: productName,
-            Section: dDay,
-            Gender: memo
+            Product: productName,
+            ID: dDay,
+            Memo: memo
         }
     )
     .then(function () {
