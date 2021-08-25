@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/app-template")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/esp32-cam")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -102,6 +102,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/ulp/cmake_install.cmake")
   include("C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/unity/cmake_install.cmake")
   include("C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/wifi_provisioning/cmake_install.cmake")
+  include("C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/esp32-camera/cmake_install.cmake")
+  include("C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/esp-idf-ssd1306/cmake_install.cmake")
   include("C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/main/cmake_install.cmake")
 
 endif()

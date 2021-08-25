@@ -1591,29 +1591,548 @@
     {
         "children": [
             {
-                "children": [],
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "WiFi SSID (network name) to connect to or empty for Off.",
+                        "id": "ESP_WIFI_SSID",
+                        "name": "ESP_WIFI_SSID",
+                        "range": null,
+                        "title": "WiFi STA SSID",
+                        "type": "string"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "WiFi Password if WEP/WPA/WPA2 or empty if Open.",
+                        "id": "ESP_WIFI_PASSWORD",
+                        "name": "ESP_WIFI_PASSWORD",
+                        "range": null,
+                        "title": "WiFi STA Password",
+                        "type": "string"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Set the Maximum retry to avoid station reconnecting to the AP unlimited when the AP is really inexistent.",
+                        "id": "ESP_MAXIMUM_RETRY",
+                        "name": "ESP_MAXIMUM_RETRY",
+                        "range": null,
+                        "title": "Maximum retry",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "AP SSID (network name) to create or empty for Off.",
+                        "id": "ESP_WIFI_AP_SSID",
+                        "name": "ESP_WIFI_AP_SSID",
+                        "range": null,
+                        "title": "WiFi AP SSID",
+                        "type": "string"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "AP password for WPA2 or empty for Open.",
+                        "id": "ESP_WIFI_AP_PASSWORD",
+                        "name": "ESP_WIFI_AP_PASSWORD",
+                        "range": null,
+                        "title": "WiFi AP Password",
+                        "type": "string"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "IP address that the ESP will assign to it's AP interface. You can use this IP to connect to the camera after flashing.",
+                        "id": "SERVER_IP",
+                        "name": "SERVER_IP",
+                        "range": null,
+                        "title": "WiFi AP IP Address",
+                        "type": "string"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "The hostname under which the camera will accesible in the local network.",
+                        "id": "LWIP_LOCAL_HOSTNAME",
+                        "name": "LWIP_LOCAL_HOSTNAME",
+                        "range": null,
+                        "title": "Local hostname",
+                        "type": "string"
+                    }
+                ],
                 "depends_on": null,
-                "help": "SSID (network name) for the example to connect to.",
-                "id": "ESP_WIFI_SSID",
-                "name": "ESP_WIFI_SSID",
-                "range": null,
-                "title": "WiFi SSID",
-                "type": "string"
+                "id": "camera-web-server-wifi-settings",
+                "title": "WiFi Settings",
+                "type": "menu"
             },
             {
-                "children": [],
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable or disable authentication",
+                        "id": "DEF_HTTP_AUTH_ENABLED",
+                        "name": "DEF_HTTP_AUTH_ENABLED",
+                        "range": null,
+                        "title": "Authentication required",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Username for authentication - max 15 characters",
+                        "id": "DEF_HTTP_USER",
+                        "name": "DEF_HTTP_USER",
+                        "range": null,
+                        "title": "Username",
+                        "type": "string"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Password for authentication - max 15 characters",
+                        "id": "DEF_HTTP_PASSWORD",
+                        "name": "DEF_HTTP_PASSWORD",
+                        "range": null,
+                        "title": "Password",
+                        "type": "string"
+                    }
+                ],
                 "depends_on": null,
-                "help": "WiFi password (WPA or WPA2) for the example to use.",
-                "id": "ESP_WIFI_PASSWORD",
-                "name": "ESP_WIFI_PASSWORD",
-                "range": null,
-                "title": "WiFi Password",
-                "type": "string"
+                "id": "camera-web-server-authentication",
+                "title": "Authentication",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "MDNS_ENABLED",
+                                "help": "mDNS Instance Name to use",
+                                "id": "MDNS_INSTANCE",
+                                "name": "MDNS_INSTANCE",
+                                "range": null,
+                                "title": "mDNS Instance Name",
+                                "type": "string"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Should mDNS be used",
+                        "id": "MDNS_ENABLED",
+                        "name": "MDNS_ENABLED",
+                        "range": null,
+                        "title": "mDNS Enabled",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "id": "camera-web-server-mdns-settings",
+                "title": "mDNS Settings",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "SNTP_ENABLED",
+                                "help": "Choose a default ntp server.",
+                                "id": "NTP_SERVER",
+                                "name": "NTP_SERVER",
+                                "range": null,
+                                "title": "NTP Server",
+                                "type": "string"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "SNTP_ENABLED",
+                                "help": "For help see: https://www.gnu.org/software/libc/manual/html_node/TZ-Variable.html",
+                                "id": "TIMEZONE",
+                                "name": "TIMEZONE",
+                                "range": null,
+                                "title": "Timezone",
+                                "type": "string"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Enable SNTP Time Synchronization.",
+                        "id": "SNTP_ENABLED",
+                        "name": "SNTP_ENABLED",
+                        "range": null,
+                        "title": "Enable SNTP Time Synchronization",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "id": "camera-web-server-sntp-configuration",
+                "title": "SNTP Configuration",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "LED_ILLUMINATOR_ENABLED",
+                                "help": "Set a pin to illuminate an onboard LED or IR Illuminator when streaming or taking snapshots.",
+                                "id": "LED_LEDC_PIN",
+                                "name": "LED_LEDC_PIN",
+                                "range": null,
+                                "title": "LED Illuminator GPIO Pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "LED_ILLUMINATOR_ENABLED",
+                                "help": "Limit the maximum intensity of the LED while streaming to prevent overheating (0-255).",
+                                "id": "LED_MAX_INTENSITY",
+                                "name": "LED_MAX_INTENSITY",
+                                "range": null,
+                                "title": "LED Maximum Intensity (0-255)",
+                                "type": "int"
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice LED_LEDC_SPEED_MODE>",
+                                        "help": null,
+                                        "id": "LED_LEDC_LOW_SPEED_MODE",
+                                        "name": "LED_LEDC_LOW_SPEED_MODE",
+                                        "range": null,
+                                        "title": "LOW_SPEED_MODE",
+                                        "type": "bool"
+                                    },
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice LED_LEDC_SPEED_MODE>",
+                                        "help": null,
+                                        "id": "LED_LEDC_HIGH_SPEED_MODE",
+                                        "name": "LED_LEDC_HIGH_SPEED_MODE",
+                                        "range": null,
+                                        "title": "HIGH_SPEED_MODE",
+                                        "type": "bool"
+                                    }
+                                ],
+                                "depends_on": "LED_ILLUMINATOR_ENABLED",
+                                "help": "Select a speed mode for the LEDC channel",
+                                "id": "camera-web-server-led-illuminator-led-illuminator-enabled-select-ledc-timer-speed-mode",
+                                "name": "LED_LEDC_SPEED_MODE",
+                                "title": "Select LEDC Timer Speed Mode",
+                                "type": "choice"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "LED_ILLUMINATOR_ENABLED",
+                                "help": "Select the LEDC Timer (0-3)",
+                                "id": "LED_LEDC_TIMER",
+                                "name": "LED_LEDC_TIMER",
+                                "range": null,
+                                "title": "LEDC Timer",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "LED_ILLUMINATOR_ENABLED",
+                                "help": "Select the LEDC Channel (0-7)",
+                                "id": "LED_LEDC_CHANNEL",
+                                "name": "LED_LEDC_CHANNEL",
+                                "range": null,
+                                "title": "LEDC Channel",
+                                "type": "int"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Enable an LED Flash or IR Illuminator",
+                        "id": "LED_ILLUMINATOR_ENABLED",
+                        "name": "LED_ILLUMINATOR_ENABLED",
+                        "range": null,
+                        "title": "LED Illuminator Enabled",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "id": "camera-web-server-led-illuminator",
+                "title": "LED Illuminator",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice CAMERA_MODEL>",
+                                "help": null,
+                                "id": "CAMERA_MODEL_WROVER_KIT",
+                                "name": "CAMERA_MODEL_WROVER_KIT",
+                                "range": null,
+                                "title": "WROVER-KIT With OV2640 Module",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice CAMERA_MODEL>",
+                                "help": null,
+                                "id": "CAMERA_MODEL_ESP_EYE",
+                                "name": "CAMERA_MODEL_ESP_EYE",
+                                "range": null,
+                                "title": "ESP_EYE DevKit",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice CAMERA_MODEL>",
+                                "help": null,
+                                "id": "CAMERA_MODEL_M5STACK_PSRAM",
+                                "name": "CAMERA_MODEL_M5STACK_PSRAM",
+                                "range": null,
+                                "title": "M5Stack Camera With PSRAM",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice CAMERA_MODEL>",
+                                "help": null,
+                                "id": "CAMERA_MODEL_M5STACK_WIDE",
+                                "name": "CAMERA_MODEL_M5STACK_WIDE",
+                                "range": null,
+                                "title": "M5Stack Camera F (Wide)",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice CAMERA_MODEL>",
+                                "help": null,
+                                "id": "CAMERA_MODEL_AI_THINKER",
+                                "name": "CAMERA_MODEL_AI_THINKER",
+                                "range": null,
+                                "title": "ESP32-CAM by AI-Thinker",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice CAMERA_MODEL>",
+                                "help": null,
+                                "id": "CAMERA_MODEL_TJOURNAL",
+                                "name": "CAMERA_MODEL_TJOURNAL",
+                                "range": null,
+                                "title": "TTGO T-Journal",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice CAMERA_MODEL>",
+                                "help": null,
+                                "id": "CAMERA_MODEL_CUSTOM",
+                                "name": "CAMERA_MODEL_CUSTOM",
+                                "range": null,
+                                "title": "Custom Camera Pinout",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Select Camera Pinout.",
+                        "id": "camera-web-server-camera-pins-select-camera-pinout",
+                        "name": "CAMERA_MODEL",
+                        "title": "Select Camera Pinout",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Power Down pin or -1 for unmanaged.",
+                        "id": "CAMERA_PIN_PWDN",
+                        "name": "CAMERA_PIN_PWDN",
+                        "range": null,
+                        "title": "Power Down pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera Reset pin or -1 for software reset.",
+                        "id": "CAMERA_PIN_RESET",
+                        "name": "CAMERA_PIN_RESET",
+                        "range": null,
+                        "title": "Reset pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera XCLK pin.",
+                        "id": "CAMERA_PIN_XCLK",
+                        "name": "CAMERA_PIN_XCLK",
+                        "range": null,
+                        "title": "XCLK pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera SIOD pin.",
+                        "id": "CAMERA_PIN_SIOD",
+                        "name": "CAMERA_PIN_SIOD",
+                        "range": null,
+                        "title": "SIOD pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera SIOC pin.",
+                        "id": "CAMERA_PIN_SIOC",
+                        "name": "CAMERA_PIN_SIOC",
+                        "range": null,
+                        "title": "SIOC pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera VSYNC pin.",
+                        "id": "CAMERA_PIN_VSYNC",
+                        "name": "CAMERA_PIN_VSYNC",
+                        "range": null,
+                        "title": "VSYNC pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera HREF pin.",
+                        "id": "CAMERA_PIN_HREF",
+                        "name": "CAMERA_PIN_HREF",
+                        "range": null,
+                        "title": "HREF pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera PCLK pin.",
+                        "id": "CAMERA_PIN_PCLK",
+                        "name": "CAMERA_PIN_PCLK",
+                        "range": null,
+                        "title": "PCLK pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera Y2 pin.",
+                        "id": "CAMERA_PIN_Y2",
+                        "name": "CAMERA_PIN_Y2",
+                        "range": null,
+                        "title": "Y2 pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera Y3 pin.",
+                        "id": "CAMERA_PIN_Y3",
+                        "name": "CAMERA_PIN_Y3",
+                        "range": null,
+                        "title": "Y3 pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera Y4 pin.",
+                        "id": "CAMERA_PIN_Y4",
+                        "name": "CAMERA_PIN_Y4",
+                        "range": null,
+                        "title": "Y4 pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera Y5 pin.",
+                        "id": "CAMERA_PIN_Y5",
+                        "name": "CAMERA_PIN_Y5",
+                        "range": null,
+                        "title": "Y5 pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera Y6 pin.",
+                        "id": "CAMERA_PIN_Y6",
+                        "name": "CAMERA_PIN_Y6",
+                        "range": null,
+                        "title": "Y6 pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera Y7 pin.",
+                        "id": "CAMERA_PIN_Y7",
+                        "name": "CAMERA_PIN_Y7",
+                        "range": null,
+                        "title": "Y7 pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera Y8 pin.",
+                        "id": "CAMERA_PIN_Y8",
+                        "name": "CAMERA_PIN_Y8",
+                        "range": null,
+                        "title": "Y8 pin",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "CAMERA_MODEL_CUSTOM",
+                        "help": "Select Camera Y9 pin.",
+                        "id": "CAMERA_PIN_Y9",
+                        "name": "CAMERA_PIN_Y9",
+                        "range": null,
+                        "title": "Y9 pin",
+                        "type": "int"
+                    }
+                ],
+                "depends_on": null,
+                "id": "camera-web-server-camera-pins",
+                "title": "Camera Pins",
+                "type": "menu"
             }
         ],
         "depends_on": null,
-        "id": "example-configuration",
-        "title": "Example Configuration",
+        "id": "camera-web-server",
+        "title": "Camera Web Server",
+        "type": "menu"
+    },
+    {
+        "children": [
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Set to True to erase and rewrite the font partition. This causes all selected fonts to be loaded into memory and written out to a partition. This option is meant for exporting a font partition image containing specific fonts.",
+                "id": "STORE_FONT_PARTITION",
+                "name": "STORE_FONT_PARTITION",
+                "range": null,
+                "title": "Store Font Partition",
+                "type": "bool"
+            }
+        ],
+        "depends_on": null,
+        "id": "font-configuration",
+        "title": "Font Configuration",
         "type": "menu"
     },
     {
@@ -7860,7 +8379,10 @@
                                         "help": "If malloc() is capable of also allocating SPI-connected ram, its allocation strategy will prefer to\nallocate chunks less than this size in internal memory, while allocations larger than this will be\ndone from external RAM. If allocation from the preferred region fails, an attempt is made to allocate\nfrom the non-preferred region instead, so malloc() will not suddenly fail when either internal or\nexternal memory is full.",
                                         "id": "SPIRAM_MALLOC_ALWAYSINTERNAL",
                                         "name": "SPIRAM_MALLOC_ALWAYSINTERNAL",
-                                        "range": null,
+                                        "range": [
+                                            0,
+                                            131072
+                                        ],
                                         "title": "Maximum malloc() size, in bytes, to always put in internal memory",
                                         "type": "int"
                                     },
@@ -7880,7 +8402,10 @@
                                         "help": "Because the external/internal RAM allocation strategy is not always perfect, it sometimes may happen\nthat the internal memory is entirely filled up. This causes allocations that are specifically done in\ninternal memory, for example the stack for new tasks or memory to service DMA or have memory that's\nalso available when SPI cache is down, to fail. This option reserves a pool specifically for requests\nlike that; the memory in this pool is not given out when a normal malloc() is called.\n\nSet this to 0 to disable this feature.\n\nNote that because FreeRTOS stacks are forced to internal memory, they will also use this memory pool;\nbe sure to keep this in mind when adjusting this value.\n\nNote also that the DMA reserved pool may not be one single contiguous memory region, depending on the\nconfigured size and the static memory usage of the app.",
                                         "id": "SPIRAM_MALLOC_RESERVE_INTERNAL",
                                         "name": "SPIRAM_MALLOC_RESERVE_INTERNAL",
-                                        "range": null,
+                                        "range": [
+                                            0,
+                                            262144
+                                        ],
                                         "title": "Reserve this amount of bytes for data that specifically needs to be in DMA or internal memory",
                                         "type": "int"
                                     },
@@ -7970,7 +8495,10 @@
                                                 "help": "Select the amount of banks reserved for bank switching. Note that the amount of RAM allocatable with\nmalloc/esp_heap_alloc_caps will decrease by 32K for each page reserved here.\n\nNote that this reservation is only actually done if your program actually uses the himem API. Without\nany himem calls, the reservation is not done and the original amount of memory will be available\nto malloc/esp_heap_alloc_caps.",
                                                 "id": "SPIRAM_BANKSWITCH_RESERVE",
                                                 "name": "SPIRAM_BANKSWITCH_RESERVE",
-                                                "range": null,
+                                                "range": [
+                                                    1,
+                                                    62
+                                                ],
                                                 "title": "Amount of 32K pages to reserve for bank switching",
                                                 "type": "int"
                                             }
@@ -8041,7 +8569,10 @@
                                                 "help": "The PSRAM CLOCK IO can be any unused GPIO, user can config it based on hardware design. If user use\n1.8V flash and 1.8V psram, this value can only be one of 6, 7, 8, 9, 10, 11, 16, 17.",
                                                 "id": "D0WD_PSRAM_CLK_IO",
                                                 "name": "D0WD_PSRAM_CLK_IO",
-                                                "range": null,
+                                                "range": [
+                                                    0,
+                                                    33
+                                                ],
                                                 "title": "PSRAM CLK IO number",
                                                 "type": "int"
                                             },
@@ -8051,7 +8582,10 @@
                                                 "help": "The PSRAM CS IO can be any unused GPIO, user can config it based on hardware design. If user use\n1.8V flash and 1.8V psram, this value can only be one of 6, 7, 8, 9, 10, 11, 16, 17.",
                                                 "id": "D0WD_PSRAM_CS_IO",
                                                 "name": "D0WD_PSRAM_CS_IO",
-                                                "range": null,
+                                                "range": [
+                                                    0,
+                                                    33
+                                                ],
                                                 "title": "PSRAM CS IO number",
                                                 "type": "int"
                                             }
@@ -8069,7 +8603,10 @@
                                                 "help": "User can config it based on hardware design. For ESP32-D2WD chip, the psram can only be 1.8V psram,\nso this value can only be one of 6, 7, 8, 9, 10, 11, 16, 17.",
                                                 "id": "D2WD_PSRAM_CLK_IO",
                                                 "name": "D2WD_PSRAM_CLK_IO",
-                                                "range": null,
+                                                "range": [
+                                                    0,
+                                                    33
+                                                ],
                                                 "title": "PSRAM CLK IO number",
                                                 "type": "int"
                                             },
@@ -8079,7 +8616,10 @@
                                                 "help": "User can config it based on hardware design. For ESP32-D2WD chip, the psram can only be 1.8V psram,\nso this value can only be one of 6, 7, 8, 9, 10, 11, 16, 17.",
                                                 "id": "D2WD_PSRAM_CS_IO",
                                                 "name": "D2WD_PSRAM_CS_IO",
-                                                "range": null,
+                                                "range": [
+                                                    0,
+                                                    33
+                                                ],
                                                 "title": "PSRAM CS IO number",
                                                 "type": "int"
                                             }
@@ -8097,7 +8637,10 @@
                                                 "help": "The PSRAM CS IO can be any unused GPIO, user can config it based on hardware design.\n\nFor ESP32-PICO chip, the psram share clock with flash, so user do not need to configure the clock\nIO.\nFor the reference hardware design, please refer to\nhttps://www.espressif.com/sites/default/files/documentation/esp32-pico-d4_datasheet_en.pdf",
                                                 "id": "PICO_PSRAM_CS_IO",
                                                 "name": "PICO_PSRAM_CS_IO",
-                                                "range": null,
+                                                "range": [
+                                                    0,
+                                                    33
+                                                ],
                                                 "title": "PSRAM CS IO number",
                                                 "type": "int"
                                             }
@@ -8113,7 +8656,10 @@
                                         "help": "This value is ignored unless flash mode is set to DIO or DOUT and the SPI flash pins have been\noverriden by setting the eFuses SPI_PAD_CONFIG_xxx.\n\nWhen this is the case, the eFuse config only defines 3 of the 4 Quad I/O data pins. The WP pin (aka\nESP32 pin \"SD_DATA_3\" or SPI flash pin \"IO2\") is not specified in eFuse. And the psram only has QPI\nmode, the WP pin is necessary, so we need to configure this value here.\n\nWhen flash mode is set to QIO or QOUT, the PSRAM WP pin will be set as the value configured in\nbootloader.\n\nFor ESP32-PICO chip, the default value of this config should be 7.",
                                         "id": "SPIRAM_SPIWP_SD3_PIN",
                                         "name": "SPIRAM_SPIWP_SD3_PIN",
-                                        "range": null,
+                                        "range": [
+                                            0,
+                                            33
+                                        ],
                                         "title": "SPI PSRAM WP(SD3) Pin when customising pins via eFuse (read help)",
                                         "type": "int"
                                     },
@@ -9724,7 +10270,10 @@
                         "help": "Set the number of WiFi static TX buffers. Each buffer takes approximately 1.6KB of RAM.\nThe static RX buffers are allocated when esp_wifi_init() is called, they are not released\nuntil esp_wifi_deinit() is called.\n\nFor each transmitted data frame from the higher layer TCP/IP stack, the WiFi driver makes a\ncopy of it in a TX buffer.  For some applications especially UDP applications, the upper\nlayer can deliver frames faster than WiFi layer can transmit. In these cases, we may run out\nof TX buffers.",
                         "id": "ESP32_WIFI_STATIC_TX_BUFFER_NUM",
                         "name": "ESP32_WIFI_STATIC_TX_BUFFER_NUM",
-                        "range": null,
+                        "range": [
+                            1,
+                            64
+                        ],
                         "title": "Max number of WiFi static TX buffers",
                         "type": "int"
                     },
@@ -9734,10 +10283,7 @@
                         "help": "Set the number of WiFi dynamic TX buffers. The size of each dynamic TX buffer is not fixed,\nit depends on the size of each transmitted data frame.\n\nFor each transmitted frame from the higher layer TCP/IP stack, the WiFi driver makes a copy\nof it in a TX buffer. For some applications, especially UDP applications, the upper layer\ncan deliver frames faster than WiFi layer can transmit. In these cases, we may run out of TX\nbuffers.",
                         "id": "ESP32_WIFI_DYNAMIC_TX_BUFFER_NUM",
                         "name": "ESP32_WIFI_DYNAMIC_TX_BUFFER_NUM",
-                        "range": [
-                            1,
-                            128
-                        ],
+                        "range": null,
                         "title": "Max number of WiFi dynamic TX buffers",
                         "type": "int"
                     },
@@ -14819,6 +15365,273 @@
                 "depends_on": null,
                 "id": "component-config-supplicant",
                 "title": "Supplicant",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice INTERFACE>",
+                                        "help": "I2C Interface.",
+                                        "id": "I2C_INTERFACE",
+                                        "name": "I2C_INTERFACE",
+                                        "range": null,
+                                        "title": "I2C Interface",
+                                        "type": "bool"
+                                    },
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice INTERFACE>",
+                                        "help": "SPI Interface.",
+                                        "id": "SPI_INTERFACE",
+                                        "name": "SPI_INTERFACE",
+                                        "range": null,
+                                        "title": "SPI Interface",
+                                        "type": "bool"
+                                    }
+                                ],
+                                "depends_on": "USE_SSD1306_LCD_DRIVER",
+                                "help": "Select Interface.",
+                                "id": "component-config-ssd1306-configuration-use-ssd1306-lcd-driver-interface",
+                                "name": "INTERFACE",
+                                "title": "Interface",
+                                "type": "choice"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Select to enable inclusion of the SSD1306 LCD driver",
+                        "id": "USE_SSD1306_LCD_DRIVER",
+                        "name": "USE_SSD1306_LCD_DRIVER",
+                        "range": null,
+                        "title": "Use SSD1306 LCD Driver",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice PANEL>",
+                                "help": "Panel is 128x32.",
+                                "id": "SSD1306_128x32",
+                                "name": "SSD1306_128x32",
+                                "range": null,
+                                "title": "128x32 Panel",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice PANEL>",
+                                "help": "Panel is 128x64.",
+                                "id": "SSD1306_128x64",
+                                "name": "SSD1306_128x64",
+                                "range": null,
+                                "title": "128x64 Panel",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": "I2C_INTERFACE",
+                        "help": "Select Panel Type.",
+                        "id": "component-config-ssd1306-configuration-panel-type",
+                        "name": "PANEL",
+                        "title": "Panel Type",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "I2C_INTERFACE",
+                        "help": "GPIO number (IOxx) to I2C SCL.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used to I2C.\nGPIOs 35-39 are input-only so cannot be used as outputs.",
+                        "id": "SCL_GPIO",
+                        "name": "SCL_GPIO",
+                        "range": null,
+                        "title": "SCL GPIO number",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "I2C_INTERFACE",
+                        "help": "GPIO number (IOxx) to I2C SDA.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used to I2C.\nGPIOs 35-39 are input-only so cannot be used as outputs.",
+                        "id": "SDA_GPIO",
+                        "name": "SDA_GPIO",
+                        "range": null,
+                        "title": "SDA GPIO number",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "USE_SSD1306_LCD_DRIVER",
+                        "help": "GPIO number (IOxx) to RESET.\nWhen it is -1, RESET isn't performed.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used to Reset.\nGPIOs 35-39 are input-only so cannot be used as outputs.",
+                        "id": "RESET_GPIO",
+                        "name": "RESET_GPIO",
+                        "range": null,
+                        "title": "RESET GPIO number",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "SPI_INTERFACE",
+                        "help": "GPIO number (IOxx) to SPI CS.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used to CS.\nGPIOs 35-39 are input-only so cannot be used as outputs.",
+                        "id": "CS_GPIO",
+                        "name": "CS_GPIO",
+                        "range": null,
+                        "title": "CS GPIO number",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "SPI_INTERFACE",
+                        "help": "GPIO number (IOxx) to SPI DC.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used to DC.\nGPIOs 35-39 are input-only so cannot be used as outputs.",
+                        "id": "DC_GPIO",
+                        "name": "DC_GPIO",
+                        "range": null,
+                        "title": "DC GPIO number",
+                        "type": "int"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-ssd1306-configuration",
+                "title": "SSD1306 Configuration",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable this option if you want to use the OV7670.\nDisable this option to safe memory.",
+                        "id": "OV7670_SUPPORT",
+                        "name": "OV7670_SUPPORT",
+                        "range": null,
+                        "title": "Support OV7670 VGA",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable this option if you want to use the OV7725.\nDisable this option to save memory.",
+                        "id": "OV7725_SUPPORT",
+                        "name": "OV7725_SUPPORT",
+                        "range": null,
+                        "title": "Support OV7725 SVGA",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable this option if you want to use the NT99141.\nDisable this option to save memory.",
+                        "id": "NT99141_SUPPORT",
+                        "name": "NT99141_SUPPORT",
+                        "range": null,
+                        "title": "Support NT99141 HD",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable this option if you want to use the OV2640.\nDisable this option to save memory.",
+                        "id": "OV2640_SUPPORT",
+                        "name": "OV2640_SUPPORT",
+                        "range": null,
+                        "title": "Support OV2640 2MP",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable this option if you want to use the OV3360.\nDisable this option to save memory.",
+                        "id": "OV3660_SUPPORT",
+                        "name": "OV3660_SUPPORT",
+                        "range": null,
+                        "title": "Support OV3660 3MP",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable this option if you want to use the OV5640.\nDisable this option to save memory.",
+                        "id": "OV5640_SUPPORT",
+                        "name": "OV5640_SUPPORT",
+                        "range": null,
+                        "title": "Support OV5640 5MP",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice SCCB_HARDWARE_I2C_PORT>",
+                                "help": null,
+                                "id": "SCCB_HARDWARE_I2C_PORT0",
+                                "name": "SCCB_HARDWARE_I2C_PORT0",
+                                "range": null,
+                                "title": "I2C0",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice SCCB_HARDWARE_I2C_PORT>",
+                                "help": null,
+                                "id": "SCCB_HARDWARE_I2C_PORT1",
+                                "name": "SCCB_HARDWARE_I2C_PORT1",
+                                "range": null,
+                                "title": "I2C1",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": null,
+                        "id": "component-config-camera-configuration-i2c-peripheral-to-use-for-sccb",
+                        "name": "SCCB_HARDWARE_I2C_PORT",
+                        "title": "I2C peripheral to use for SCCB",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice CAMERA_TASK_PINNED_TO_CORE>",
+                                "help": null,
+                                "id": "CAMERA_CORE0",
+                                "name": "CAMERA_CORE0",
+                                "range": null,
+                                "title": "CORE0",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice CAMERA_TASK_PINNED_TO_CORE>",
+                                "help": null,
+                                "id": "CAMERA_CORE1",
+                                "name": "CAMERA_CORE1",
+                                "range": null,
+                                "title": "CORE1",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice CAMERA_TASK_PINNED_TO_CORE>",
+                                "help": null,
+                                "id": "CAMERA_NO_AFFINITY",
+                                "name": "CAMERA_NO_AFFINITY",
+                                "range": null,
+                                "title": "NO_AFFINITY",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Pin the camera handle task to a certain core(0/1). It can also be done automatically choosing NO_AFFINITY.",
+                        "id": "component-config-camera-configuration-camera-task-pinned-to-core",
+                        "name": "CAMERA_TASK_PINNED_TO_CORE",
+                        "title": "Camera task pinned to core",
+                        "type": "choice"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-camera-configuration",
+                "title": "Camera configuration",
                 "type": "menu"
             }
         ],
