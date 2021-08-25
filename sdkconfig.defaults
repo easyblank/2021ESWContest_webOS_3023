@@ -1,0 +1,21 @@
+# pin camera and WiFi stack to a specific core for performance and reliability
+CONFIG_CAMERA_CORE1=y
+CONFIG_ESP32_WIFI_TASK_PINNED_TO_CORE_0=y
+
+# increase CPU frequency for performance
+CONFIG_ESP32_DEFAULT_CPU_FREQ_240=y
+
+# the code requires SPI RAM
+CONFIG_ESP32_SPIRAM_SUPPORT=y
+
+# use SPI RAM when malloc(), otherwise WiFi stack and httpd tasks fail with
+# ESP_ERR_NO_MEM
+CONFIG_SPIRAM_USE_MALLOC=y
+
+# the code requires custom partition table and more than 4MB flash
+CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_OFFSET=0x18000
+
+# esp32-camera uses rtc_gpio_desc in rtc_io_desc_t, instead of rtc_io_desc
+CONFIG_RTCIO_SUPPORT_RTC_GPIO_DESC=y

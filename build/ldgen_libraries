@@ -58,4 +58,6 @@ C:/Users/suyon/eclipse-workspace/safety-camera/build/esp-idf/spiffs/libspiffs.a
 C:/Users/suyon/eclipse-workspace/safety-camera/build/esp-idf/ulp/libulp.a
 C:/Users/suyon/eclipse-workspace/safety-camera/build/esp-idf/unity/libunity.a
 C:/Users/suyon/eclipse-workspace/safety-camera/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
+C:/Users/suyon/eclipse-workspace/safety-camera/build/esp-idf/esp32-camera/libesp32-camera.a
+C:/Users/suyon/eclipse-workspace/safety-camera/build/esp-idf/esp-idf-ssd1306/libesp-idf-ssd1306.a
 C:/Users/suyon/eclipse-workspace/safety-camera/build/esp-idf/main/libmain.a
