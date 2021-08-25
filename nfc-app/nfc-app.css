@@ -4,7 +4,16 @@
 }
 
 .nfc-app div {
-    border: 1px solid black;
+    background-color: #ffff;
+    border:1px solid #d3e6ff;
+    border-radius: 12px;
+    padding: 5px 3px;
+    color: #293251;
     /* height: 90px;
     overflow: hidden; */
+}
+
+.nfc-app div p {
+    font-weight: bold;
+    font-size: x-large;
 }

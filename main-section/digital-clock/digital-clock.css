@@ -6,12 +6,12 @@
 
   
   .datetime{
-    color: #fff;
-    /* background: #10101E; */
+    color: #293251;
+    background: #fff1d6;
     font-family: "Segoe UI", sans-serif;
     padding: 15px 10px;
-    border: 3px solid #2E94E3;
-    border-radius: 5px;
+    /* border: 3px solid #2E94E3; */
+    border-radius: 12px;
 
     /* transition: 0.5s;
     transition-property: background, box-shadow; */
@@ -40,7 +40,7 @@
   }
   
   .time span:last-child{
-    background: #2E94E3;
+    /* border: 2px solid #e77f89; */
     font-size: 30px;
     font-weight: 600;
     text-transform: uppercase;

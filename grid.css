@@ -5,23 +5,23 @@
     font-family: "Segoe UI", sans-serif;
 }
 
-.container {
+.default {
     width: 800px;
     height: 480px;
-    background-color: rgb(255, 206, 206);
+    background-color: #f5f8ff;
     display: grid;
     grid-template-columns: 200px 400px 200px;
     grid-template-areas: 'nfc-app main-section noti';
 }
 
 .nfc-app {
-    border: 1px solid black;
+    border: 1px solid #d3e6ff;
 }
 
-.main{
-    border: 1px solid black;
+.main-section {
+    border: 1px solid #d3e6ff;
 }
 
 .noti {
-    border: 1px solid black;
+    border: 1px solid #d3e6ff;
 }

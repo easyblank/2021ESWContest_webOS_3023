@@ -24,6 +24,7 @@ let content;
 let nfcSection = document.getElementById('list');
 
 nfcSection.addEventListener('click', (event)=>{
+    console.log("clicked");
     //클릭한 요소의 부모 요소의 아이디를 변수에 담는다
     let targetID = event.target.parentNode.id;
 
@@ -31,6 +32,7 @@ nfcSection.addEventListener('click', (event)=>{
     content = nfcDiv.innerText
     
     speak(content);
+    console.log("tts started");
 })
 //-------------------------------------//
 

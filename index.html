@@ -13,10 +13,17 @@
     <link rel="stylesheet" href="./main-section/digital-clock/digital-clock.css">
     <!-- weather section -->
     <link rel="stylesheet" href="./main-section/weather/weather.css">
+    <link rel="stylesheet" href="./main-section/safety-cam/safety-cam.css">
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+  />
 </head>
 
 <body onload="initClock()">
-    <div class="container">
+    <!-- 디폴트 화면 -->
+    <div class="default" id="default">
         <!-- nfc section -->
         <div class="nfc-app">
             <ul id="list"></ul>
@@ -62,10 +69,29 @@
             </div>
             <!-- weather end -->
 
+            <!-- safety cam start -->
+            <div class="safety-cam" id = "safety-cam">
+
+                <div class="camera-box">
+                    <i class="fas fa-camera" id="camera">안심 카메라</i>
+                </div>
+
+            </div>
+
         </div>
 
         <!-- noti section -->
-        <div class="noti">noti</div>
+        <div class="noti">
+            
+        </div>
+
+    </div>
+
+
+    <!-- 안심카메라 화면 -->
+    <div class="show-cam" style="display: none;" id='show-cam'>
+        <iframe id="cam-on" width="800" height="480"></iframe>
+        <i class="fas fa-times-circle" id="exit"></i>
     </div>
     
 </body>
@@ -81,4 +107,5 @@
 <script src="./main-section/weather/weather.js"></script>
 <!-- for blind people -->
 <script src="./touch-tts.js"></script>
+<script src="./main-section/safety-cam/safety-cam.js"></script>
 </html>

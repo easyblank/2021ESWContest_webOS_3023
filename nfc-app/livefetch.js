@@ -21,7 +21,7 @@ const list = document.getElementById('list');
 //firestore에서 값을 받아 온 뒤 변수에 저장하고 append하는 함수
 function renderList(doc) {
     let idForDiv = document.createElement('div');
-    let name = document.createElement('h2');
+    let name = document.createElement('p');
     let sec = document.createElement('li');
     let gen = document.createElement('li');
 
