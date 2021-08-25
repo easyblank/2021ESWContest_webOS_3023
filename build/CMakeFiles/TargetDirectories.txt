@@ -546,3 +546,17 @@ C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/main/CMakeFiles/__idf_main.d
 C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/main/CMakeFiles/rebuild_cache.dir
 C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/main/CMakeFiles/list_install_components.dir
 C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/main/CMakeFiles/install/strip.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl/CMakeFiles/install/local.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl/CMakeFiles/install.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl/CMakeFiles/edit_cache.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl/CMakeFiles/rebuild_cache.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl/CMakeFiles/list_install_components.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl/CMakeFiles/install/strip.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl_esp32_drivers/CMakeFiles/__idf_lvgl_esp32_drivers.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl_esp32_drivers/CMakeFiles/install/local.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl_esp32_drivers/CMakeFiles/install.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl_esp32_drivers/CMakeFiles/edit_cache.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl_esp32_drivers/CMakeFiles/rebuild_cache.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl_esp32_drivers/CMakeFiles/list_install_components.dir
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl_esp32_drivers/CMakeFiles/install/strip.dir

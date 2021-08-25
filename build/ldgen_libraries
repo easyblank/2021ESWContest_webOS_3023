@@ -61,3 +61,5 @@ C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/wifi_provisioning/libwifi_pr
 C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/esp32-camera/libesp32-camera.a
 C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/esp-idf-ssd1306/libesp-idf-ssd1306.a
 C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/main/libmain.a
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl/liblvgl.a
+C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl_esp32_drivers/liblvgl_esp32_drivers.a

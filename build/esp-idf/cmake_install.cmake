@@ -105,6 +105,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/esp32-camera/cmake_install.cmake")
   include("C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/esp-idf-ssd1306/cmake_install.cmake")
   include("C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/main/cmake_install.cmake")
+  include("C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl/cmake_install.cmake")
+  include("C:/Users/suyon/eclipse-workspace/noti/build/esp-idf/lvgl_esp32_drivers/cmake_install.cmake")
 
 endif()
 
