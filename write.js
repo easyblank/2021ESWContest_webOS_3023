@@ -88,7 +88,7 @@ function Modify_inDocument(){
     cloudDB.collection("nfcTag").doc(id).update(
         {
             Product: productName,
-            ID: dDay,
+            Dday: dDay,
             Memo: memo
         }
     )
