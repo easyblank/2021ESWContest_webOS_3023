@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car Dashboard</title>
+  <meta charset="UTF-8">
+
+  <!-- css -->
+  <link href="./grid.css" rel="stylesheet">
+
+  <!-- webos 기본 자바스크립트 -->
+  <script type="text/javascript">
+      var bridge = new WebOSServiceBridge();
+      function toastCallback(msg) {
+          console.log("before-parse-response");
+          var response = JSON.parse(msg);
+          console.log(response);
+      }
+      function createToast() {
+          var url = 'luna://com.webos.notification/createToast';
+
+          bridge.onservicecallback = toastCallback;
+
+          var params = {
+              "message":"hello world"
+          };
+          console.log("before-bridge.call");
+          bridge.call(url, JSON.stringify(params));
+          console.log("after-bridge.call");
+      }
+  </script>
+
+  <!-- 부트스트랩과 폰트 -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+  <!-- 구글 폰트 -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon-->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- digital clock section -->
+  <link rel="stylesheet" href="./main-section/digital-clock/digital-clock.css">
+  <!-- weather section -->
+  <link rel="stylesheet" href="./main-section/weather/weather.css">
+
+
+
+</head>
+
+<body onload="initClock()">
+    <!-- <div class="top">
+        <h1 id="txt_msg">Car Dashboard</h1>
+    </div>
+    <div class="mid">
+        <button onclick="createToast()">create toast</button>
+    </div> -->
+
+    <!-- <a href="http://192.168.0.105:81/stream">camera</a> -->
+    <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b22a314d3d361b9fa93b4b42a216d3c0"></script> -->
+
+    <!-- 카카오맵 API -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b22a314d3d361b9fa93b4b42a216d3c0&libraries=services"></script>
+
+    <!-- <div id="map" style="width:100vw;height:100vh;z-index: 1;"></div> -->
+
+    <!-- 카카오맵 -->
+    <div class="map_wrap" id="default">
+      <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden;"></div>
+
+    <!-- 카카오맵 검색 메뉴 -->
+    <div id="menu_wrap" class="bg_white">
+          <div class="option">
+              <div>
+                  <form onsubmit="searchPlaces(); return false;">
+                      Keyword : <input type="text" value="" id="keyword" size="15">
+                      <button id="submit" type="submit">Search</button>
+                  </form>
+              </div>
+          </div>
+          <hr>
+          <ul id="placesList"></ul>
+          <div id="pagination"></div>
+      </div>
+    </div>
+
+    <!-- 하단바 생성 메뉴 토글 -->
+    <a class="menu-toggle rounded" href="#">
+        <i class="fas fa-bars"></i>
+    </a>
+
+    <!-- 하단바 메뉴 -->
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-nav-item" id="nfc-tag">
+            <!-- <a class="js-scroll-trigger" href="./NFC.html">NFC tags</a> -->
+            <a>NFC tags</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a>Machine</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a>safetyCam</a>
+          </li>
+          <li class="sidebar-nav-item" id="k_map">
+            <a>main</a>
+          </li>
+        </ul>
+    </nav>
+
+
+
+    <!-- NFC 태그 리스트 화면 -->
+    <div class="nfc-app" id="show-nfc">
+      <h1>Tag List</h1>
+      <ul id="list"></ul>
+    </div>
+
+    <!-- 날씨 리스트 -->
+    <div id="mymymy">
+       <!--digital clock start-->
+          <div class="datetime" id="datetime">
+            <div class="date" id='date'>
+                <span id="year">Year</span>년
+                <span id="month">Month</span>
+                <span id="daynum">00</span>
+                <span id="dayname">Day</span>
+            </div>
+            <div class="time">
+                <span id="hour">00</span>:
+                <span id="minutes">00</span>
+                <span id="period">오전</span>
+            </div>
+        </div>
+        <!--digital clock end-->
+
+        <!-- weather start -->
+        <div class="weather" id="weather">
+            <!-- lacation block에 관한 div. 자세한 사항은 js 주석처리부분 -->
+            <div class="notification"> </div>
+            <div class="weather-container">
+                <div class="weather-icon">
+                    <img src="./main-section/weather/icons/unknown.png" alt="">
+                </div>
+                <div class="temperature-value">
+                    <p id="temp">- °<span>C</span></p>
+                </div>
+                <div class="temperature-description">
+                    <p id="weath"> - </p>
+                </div>
+                <!-- <div class="location">
+                    <p>-</p>
+                </div> -->
+            </div>
+        </div>
+        <!-- weather end -->
+    </div>
+
+  <!-- 기본 js 파일 -->
+  <script src="app.js"></script>
+
+  <!-- nfc 태그 리딩 -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <!-- nfc 태그 js -->
+  <script src="./livefetch.js"></script>
+  <!-- digital clock section -->
+  <script src="./main-section/digital-clock/digital-clock.js"></script>
+  <!-- weather section -->
+  <script src="./main-section/weather/weather.js"></script>
+
+
+</body>
+</html>

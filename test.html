@@ -1,0 +1,74 @@
+<body onload="initClock()">
+    <!-- 디폴트 화면 -->
+    <div class="default" id="default">
+        <!-- nfc section -->
+        <div class="nfc-app">
+            <ul id="list"></ul>
+        </div>
+
+        <!-- main section : clock weather selection -->
+        <div class="main-section">
+
+            <!--digital clock start-->
+            <div class="datetime" id="datetime">
+                <div class="date" id='date'>
+                    <span id="year">Year</span>년
+                    <span id="month">Month</span>
+                    <span id="daynum">00</span>
+                    <span id="dayname">Day</span>
+                </div>
+                <div class="time">
+                    <span id="hour">00</span>:
+                    <span id="minutes">00</span>
+                    <span id="period">오전</span>
+                </div>
+            </div>
+            <!--digital clock end-->
+
+            <!-- weather start -->
+            <div class="weather" id="weather">
+                <!-- lacation block에 관한 div. 자세한 사항은 js 주석처리부분 -->
+                <div class="notification"> </div>
+                <div class="weather-container">
+                    <div class="weather-icon">
+                        <img src="./main-section/weather/icons/unknown.png" alt="">
+                    </div>
+                    <div class="temperature-value">
+                        <p id="temp">- °<span>C</span></p>
+                    </div>
+                    <div class="temperature-description">
+                        <p id="weath"> - </p>
+                    </div>
+                    <div class="location">
+                        <p>-</p>
+                    </div>
+                </div>
+            </div>
+            <!— weather end —>
+
+            <!— safety cam start —>
+            <div class="safety-cam" id = "safety-cam">
+
+                <div class="camera-box">
+                    <i class="fas fa-camera" id="camera">안심 카메라</i>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!— noti section —>
+        <div class="noti">
+
+        </div>
+
+    </div>
+
+
+    <!— 안심카메라 화면 —>
+    <div class="show-cam" style="display: none;" id='show-cam'>
+        <iframe id="cam-off" width="800" height="480"></iframe>
+        <i class="fas fa-times-circle" id="exit"></i>
+    </div>
+
+</body>

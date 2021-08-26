@@ -1,0 +1,322 @@
+:root {
+    --height: 250px;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    /* background-color:#202020; */
+    /* vertical-align: middle; */
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.top {
+    margin-top: 200px;
+}
+
+.mid {
+    text-align: center;
+}
+
+h1 {
+    vertical-align: middle;
+    text-align: center;
+    /* color:#FFFFFF; */
+}
+
+/* nfc 태그 리스트 css */
+
+#mymymy {
+    position: fixed;
+    right: 0;
+    width: 25vw;
+    height: 100vh;
+    overflow: scroll;
+    background-color: black;
+    top: 0;
+    z-index: 1;
+    padding-top: 50px;
+}
+
+#show-nfc {
+    position: absolute;
+    right: -25vw;
+    width: 25vw;
+    height: 100vh;
+    overflow: scroll;
+    background-color: rgb(21, 21, 21);
+    color: white;
+    top: 0;
+    z-index: 2;
+    transition: all 0.4s ease 0s;
+}
+
+#show-nfc.active {
+    right: 0;
+    transition: all 0.4s ease 0s;
+}
+
+#show-nfc h1 {
+    padding: 20px;
+    padding-top: 30px;
+    font-weight: 300;
+}
+
+#show-nfc ul {
+    margin: auto;
+    padding: 40px;
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+#show-nfc ul h2 {
+    font-weight: 300;
+    padding-bottom: 10px;
+    color: darkturquoise;
+}
+
+#show-nfc ul li {
+    font-weight: 100;
+    padding-bottom: 10px;
+}
+
+/* 날씨 */
+
+
+
+/* 팝업 내비게이션 바 */
+
+#sidebar-wrapper {
+    position: absolute;
+    z-index: 3;
+    bottom: -250px;
+    width: 100%;
+    height: var(--height);
+    transition: all 0.4s ease 0s;
+    /* transform: translateY(100px); */
+    background: black;
+    opacity: 0.8;
+    /* border-left: 1px solid rgba(255, 255, 255, 0.1); */
+}
+
+.sidebar-nav {
+    /* position: absolute; */
+    top: 0;
+    width: 100%;
+    height: var(--height);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* background-color: gold; */
+}
+
+.sidebar-nav li.sidebar-nav-item a {
+    /* position: inherit; */
+    font-size: 30px;
+    /* text-align: center; */
+    margin: auto;
+    text-decoration: none;
+    color: #fff;
+    padding: 15px;
+    /* background-color: green; */
+
+}
+
+.sidebar-nav li.sidebar-nav-item {
+    display: flex;
+    width: 25vw;
+    height: var(--height);
+    ;
+    /* background-color: lavenderblush; */
+    text-align: center;
+    margin: auto;
+}
+
+.sidebar-nav li:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+
+#sidebar-wrapper.active {
+    bottom: 0;
+    width: 100%;
+    height: var(--height);
+    transition: all 0.4s ease 0s;
+}
+
+.menu-toggle {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    background: rgba(52, 58, 64, 0.5);
+    line-height: 50px;
+    z-index: 999;
+}
+
+.menu-toggle:focus,
+.menu-toggle:hover {
+    color: #fff;
+}
+
+.menu-toggle:hover {
+    background: #343a40;
+}
+
+/* 여기서부터 카카오맵 */
+
+.map_wrap,
+.map_wrap * {
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Nanum Gothic Coding', monospace; */
+    font-size: 12px;
+    z-index: 2;
+}
+
+.map_wrap a,
+.map_wrap a:hover,
+.map_wrap a:active {
+    color: #000;
+    text-decoration: none;
+}
+
+.map_wrap {
+    position: relative;
+    width: 75vw;
+    height: 100px;
+}
+
+#menu_wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    height: 700px;
+    margin: 10px 0 30px 10px;
+    padding: 5px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.8);
+    /* background: gold; */
+    z-index: 5;
+    font-size: 12px;
+    border-radius: 10px;
+    font-weight: 300;
+}
+
+.bg_white {
+    background: #fff;
+}
+
+#menu_wrap hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #5F5F5F;
+    /* border-radius: 10px; */
+    margin: 3px 0;
+}
+
+#menu_wrap .option {
+    text-align: center;
+}
+
+#menu_wrap .option p {
+    margin: 10px 0;
+}
+
+#menu_wrap .option button {
+    margin-left: 5px;
+}
+
+#placesList li {
+    list-style: none;
+}
+
+#placesList .item {
+    position: relative;
+    border-bottom: 1px solid #888;
+    overflow: hidden;
+    cursor: pointer;
+    min-height: 45px;
+}
+
+#placesList .item span {
+    display: block;
+    margin-top: 4px;
+}
+
+#placesList .item h5,
+#placesList .item .info {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#placesList .item .info {
+    padding: 10px 0 10px 55px;
+    margin: auto;
+}
+
+#placesList .info .gray {
+    color: #8a8a8a;
+}
+
+
+#placesList .item .markerbg {
+    float: left;
+    position: absolute;
+    width: 36px;
+    height: 37px;
+    margin: 10px 0 0 10px;
+    /* background: url('./map_marker.png') no-repeat; */
+}
+
+.mapMarker {
+    width: 36px;
+    height: 36px;
+    /* float: left; */
+    margin-left: 5px;
+    position: absolute;
+}
+
+#submit {
+    font-size: 7px;
+    font-weight: 200;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: black;
+    color: white;
+    opacity: 0.7;
+}
+
+#pagination {
+    margin: 10px auto;
+    text-align: center;
+}
+
+#pagination a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#pagination .on {
+    font-weight: bold;
+    cursor: default;
+    color: #777;
+}
