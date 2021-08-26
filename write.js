@@ -55,9 +55,6 @@ function updateLog(message){
     log.appendChild(_log);
 }
 
-//등록완료되면 input을 비워주는 함수를 만들어보자
-
-
 //-----------------------//
 
 
@@ -75,11 +72,13 @@ function New_submit() {
     .then(function () {
         console.log("Document written with ID", id);
         updateLog("등록 완료");
+        p.value = null;
+        d.value = null;
+        m.value = null;
 
     })
     .catch(function (error) {
         console.error("Error adding document", error);
-        updateLog(error);
     });
 }
 
@@ -95,11 +94,13 @@ function Modify_inDocument(){
     )
     .then(function () {
         console.log("Document updated with ID", id);
-        updateLog("등록완료");
+        updateLog("등록완료!");
+        p.value = null;
+        d.value = null;
+        m.value = null;
     })
     .catch(function (error) {
         console.error("Error updating document", error);
-        updateLog(error);
     });
 }
 
@@ -134,7 +135,6 @@ if ("NDEFReader" in window) { //크롬 모바일에서만 작동한다.
             console.log("> Message written");
         } catch (error) {
             console.log("Argh! " + error);
-            updateLog(error);
         }
 
         //스캔을 해서 시리얼 넘버를 받아와 id로 설정해준다.
@@ -142,7 +142,7 @@ if ("NDEFReader" in window) { //크롬 모바일에서만 작동한다.
             const ndef = new NDEFReader();
             await ndef.scan();
             console.log("> Scan started");
-            updateLog("> Scan started");
+            updateLog("등록중...");
 
             ndef.addEventListener("reading", ({ serialNumber }) => {
                 id = serialNumber;
@@ -150,7 +150,6 @@ if ("NDEFReader" in window) { //크롬 모바일에서만 작동한다.
 
         } catch (error) {
             console.log("Argh! " + error);
-            updateLog(error);
         }
 
         Check_and_do_inDocument();
@@ -158,3 +157,19 @@ if ("NDEFReader" in window) { //크롬 모바일에서만 작동한다.
     });
 }
 
+const open = () => {
+    document.querySelector(".modal").classList.remove("hidden");
+}
+
+const close = () => {
+    document.querySelector(".modal").classList.add("hidden");
+}
+
+document.querySelector(".openBtn").addEventListener("click", open);
+document.querySelector(".closeBtn").addEventListener("click", ()=>{
+    close();
+    while ( log.hasChildNodes() ) { 
+        log.removeChild( log.firstChild );
+    }
+});
+document.querySelector(".bg").addEventListener("click", close);
