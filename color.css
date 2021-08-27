@@ -21,4 +21,11 @@
     --task-color: #777982;
     border-radius: 12px;
     color: #293251;
+    --blue-bubble: #bbe6f3;
+    --small-b-bubble: #bae5f2;
+    --pink-bubble: #ebc7e5;
+    --font-color: #063064;
+    background-color: rgb(41, 171, 164, 0.8);
+    background: #e2525c;
+    color: #fff;
   }

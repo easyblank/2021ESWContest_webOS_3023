@@ -47,6 +47,7 @@ function setPosition(){
     let longitude = 127.0016985;
     
     getWeather(latitude, longitude);
+    console.log("reload");
 }
 
 setPosition();
@@ -105,3 +106,6 @@ function displayWeather(){
 //     }
 // });
 //------------------------------------------------------------//
+
+//10분마다 새로고침
+setInterval('setPosition()',10000*60);
