@@ -1,0 +1,3 @@
+https://github.com/Bodmer/TFT_eSPI
+https://github.com/Bodmer/TFT_eFEX
+https://github.com/Bodmer/JPEGDecoder

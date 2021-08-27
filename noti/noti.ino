@@ -24,12 +24,26 @@
 #include "soc/soc.h"           // Disable brownout problems
 #include "soc/rtc_cntl_reg.h"  // Disable brownout problems
 #include "driver/rtc_io.h"
+#include <SPI.h>
+#include <TFT_eSPI.h>
+TFT_eSPI tft = TFT_eSPI();
+#include <TFT_eFEX.h>
+TFT_eFEX fex = TFT_eFEX(&tft);
 #include <ESPAsyncWebServer.h>
 #include <StringArray.h>
 #include <SPIFFS.h>
 #include <FS.h>
 #include <PubSubClient.h>
 
+String filelist;
+camera_fb_t * fb = NULL;
+String incoming;
+long current_millis;
+long last_capture_millis = 0;
+static esp_err_t cam_err;
+static esp_err_t card_err;
+char strftime_buf[64];
+long file_number = 0;
 
 // Select camera model
 //#define CAMERA_MODEL_WROVER_KIT
@@ -54,7 +68,7 @@ IPAddress subnet(255, 255, 255, 0);
 const char* mqtt_server = "192.169.0.16";      
 const char* mqtt_user = "melonmusk";
 const char* mqtt_password = "sais-iot";
-const char* mqtt_client_id = "Zählerstand";   //optional
+const char* mqtt_client_id = "noti_1";   //optional
 
 // PubSubClient 
 WiFiClient espClient;
@@ -156,7 +170,7 @@ void setup() {
     delay(500);
     Serial.println("SPIFFS mounted successfully");
   }
-
+  fex.listSPIFFS();
   // Print ESP32 Local IP Address
   Serial.println("WiFi connected");
   Serial.print("IP Address: http://");
@@ -221,7 +235,7 @@ void setup() {
 
   // start server and take photo
   server.begin();
-  Serial.println("TakeFoto=1");
+  Serial.println("TakePhoto=1");
   takeNewPhoto = true; 
 }
 
@@ -240,12 +254,12 @@ void loop() {
   // send message via MQTT to Broker to signal "awake" and "asleep" states
   char Buffer[]="abc";              //awake state "abc"
   Serial.println(Buffer);
-  client.publish("TestTopic_Zustand", Buffer);  //enter personal MQTT-Topic
-  Serial.println("Warte 15s zum Bild abrufen");
+  client.publish("TestTopic_Count", Buffer);  //enter personal MQTT-Topic
+  Serial.println("Wait 15 second until image download");
   delay(15000);                 //wait 15s so the image can be downloaded
   Buffer[1] ='d';               //asleep state "adc"
   Serial.println(Buffer);
-  client.publish("TestTopic_Zustand", Buffer);  //enter personal MQTT-Topic
+  client.publish("TestTopic_Count", Buffer);  //enter personal MQTT-Topic
   delay(200);
 
   // go into deep sleep
@@ -272,6 +286,7 @@ void capturePhotoSaveSpiffs( void ) {
     Serial.println("Taking a photo...");
 
     fb = esp_camera_fb_get();
+    fex.drawJpg((const uint8_t*)fb->buf, fb->len, 0, 6);
     if (!fb) {
       Serial.println("Camera capture failed");
       return;
