@@ -25,3 +25,181 @@
 .noti {
     border: 1px solid #d3e6ff;
 }
+
+
+/* digital clock css */
+.datetime{
+    color: #293251;
+    background: #fff1d6;
+    font-family: "Segoe UI", sans-serif;
+    padding: 15px 10px;
+    /* border: 3px solid #2E94E3; */
+    border-radius: 12px;
+
+    /* transition: 0.5s;
+    transition-property: background, box-shadow; */
+  }
+  
+  .date{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 3px;
+  }
+  
+  .time{
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .time span:not(:last-child){
+    position: relative;
+    margin: 0 6px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 3px;
+  }
+  
+  .time span:last-child{
+    /* border: 2px solid #e77f89; */
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 10px;
+    padding: 0 5px;
+    border-radius: 3px;
+  }
+
+
+
+
+
+/* safety cam css */
+.safety-cam{
+    height: 57px;
+    position: relative;
+    background-color: rgb(208, 224, 255);
+    border-radius: 12px;
+}
+
+.camera-box {
+    font-size: xx-large;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.show-cam{
+    width: 800px;
+    height: 480px;
+}
+
+#cam-on{
+    position: fixed;
+    top:0;
+    left:0;
+}
+
+#exit {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    font-size: large;
+}
+
+
+/* 날씨 css */
+.weather{
+    background-color: #FFF;
+    
+    display: block;
+    
+    border-radius: 10px;
+}
+
+
+.app-title p{
+    text-align: center;
+    padding: 15px;
+    margin: 0 auto;
+    font-size: 1.2em;
+    color: #293251;
+}
+
+.weather-container{
+    height: 300px;
+    background-color: #ffffff;
+    border-radius: 12px ;
+}
+
+.weather-icon img{
+    display: block;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.temperature-value{
+    height:60px;
+}
+
+.temperature-value p{
+    padding: 0;
+    margin: 0;
+    color: #293251;
+    font-size: 4em;
+    text-align: center;
+}
+
+
+
+.temperature-value span{
+    color: #293251;
+    font-size: 0.5em;
+}
+
+
+
+.temperature-description p{
+    padding: 8px;
+    margin: 0;
+    color: #293251;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+
+
+.location p{
+    margin: 0;
+    padding: 0;
+    color: #293251;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+
+
+/* nfc 앱 css */
+
+.nfc-app {
+    height: 480px;
+    overflow: scroll;
+}
+
+.nfc-app div {
+    background-color: #ffff;
+    border:1px solid #d3e6ff;
+    border-radius: 12px;
+    padding: 5px 3px;
+    color: #293251;
+    /* height: 90px;
+    overflow: hidden; */
+}
+
+.nfc-app div p {
+    font-weight: bold;
+    font-size: x-large;
+}
