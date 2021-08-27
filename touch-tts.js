@@ -15,6 +15,21 @@ let content;
 
 //tts for nfc-section--------------------//
 let nfcSection = document.getElementById('list');
+let popup = document.getElementById('popup');
+let inner = document.getElementById('inner');
+let pexit = document.getElementById('pexit');
+
+function popUp() {
+    defaultPage.setAttribute('style', 'display:none');
+    popup.setAttribute('style', ' ');
+    inner.innerText = content ;
+}
+
+pexit.addEventListener('click', () => {
+    console.log("clicked")
+    popup.setAttribute('style', 'display:none');
+    defaultPage.setAttribute('style', ' ');
+});
 
 nfcSection.addEventListener('click', (event)=>{
     console.log("clicked");
@@ -26,7 +41,11 @@ nfcSection.addEventListener('click', (event)=>{
     
     speak(content);
     console.log("tts started");
+
+    popUp();
+    
 })
+
 //-------------------------------------//
 
 
@@ -47,6 +66,8 @@ clockSection.addEventListener("click",()=>{
     content = `${date} ${period} ${hour}시 ${minutes}분`;
 
     speak(content);
+    
+    popUp();
 });
 //-------------------------------------//
 
@@ -64,6 +85,8 @@ weatherSection.addEventListener("click",()=>{
     content = `현재 기온은 ${temp}이고, 날씨는 ${weath} 상태입니다.`;
 
     speak(content);
+
+    popUp();
 })
 //-------------------------------------//
 
@@ -259,3 +282,4 @@ cloudDB.collection('nfcTag').onSnapshot((snapshot) => {
         renderList(doc);
     })
 })
+
