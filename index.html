@@ -39,18 +39,20 @@
   <!-- 구글 폰트 -->
 
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 
   <!-- Favicon-->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!-- digital clock section -->
   <link rel="stylesheet" href="./main-section/digital-clock/digital-clock.css">
   <!-- weather section -->
   <link rel="stylesheet" href="./main-section/weather/weather.css">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
 
@@ -108,11 +110,14 @@
             <a>Machine</a>
           </li>
           <li class="sidebar-nav-item">
-            <a>safetyCam</a>
+            <!-- <a id="special_a"> Safety Camera</a> -->
+            <button type="button" class="camBtn" data-toggle="modal" data-target="#exampleModal">
+              Safety Camera
+            </button>
           </li>
-          <li class="sidebar-nav-item" id="k_map">
+          <!-- <li class="sidebar-nav-item" id="k_map">
             <a>main</a>
-          </li>
+          </li> -->
         </ul>
     </nav>
 
@@ -164,6 +169,25 @@
         <!-- weather end -->
     </div>
 
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Safety Camera</h5>
+            <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="margin: auto;">
+            <!-- <iframe id="safetyCam" src="http://192.168.0.105:81/stream" style="width:100s%; height:250px; "></iframe> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
   <!-- 기본 js 파일 -->
   <script src="app.js"></script>
 
@@ -177,6 +201,9 @@
   <script src="./main-section/digital-clock/digital-clock.js"></script>
   <!-- weather section -->
   <script src="./main-section/weather/weather.js"></script>
+  <!-- bootstrap core javascript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
