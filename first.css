@@ -1,0 +1,15 @@
+body {
+    background-color: black;
+    color: #fdc315;
+    opacity: 0;
+    transition: opacity .5s;
+    margin: auto;
+}
+
+#intro {
+    position: fixed;
+    left: 45vw;
+    top: 45vh;
+    font-size: larger;
+    font-weight: 500;
+}
