@@ -1,3 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+    border: 0;
+    text-align: center;
+}
+
+p {
+    font-weight: 700;
+    font-size: x-large;
+    padding: 20px;
+}
+
 #log{
     font-size: 300%;
 }
@@ -13,4 +28,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
     
+}
+
+button {
+    background-color: black;
+    color: yellow;
+    font-size: x-large;
+    padding: 10px;
+    border-radius: 12px;
 }

@@ -36,15 +36,9 @@ if ("NDEFReader" in window) { //모바일 크롬에서만 작동한다
     
     clicked.addEventListener("click",function(){
         let utter = new SpeechSynthesisUtterance();
-        // utter.lang = 'en-US';
         utter.lang = 'ko-KR';
         utter.text = content;
         utter.volume = 0.5;
-
-        // event after text has been spoken
-        // utter.onend = function() {
-        //     alert('Speech has finished');
-        // }
 
         // speak
         window.speechSynthesis.speak(utter);
