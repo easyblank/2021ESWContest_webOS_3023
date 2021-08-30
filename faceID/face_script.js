@@ -4,6 +4,7 @@ window.onload = function () {
     function togle() {
       (function($) {
         $("#logo").toggleClass("active");
+        $("#go").toggleClass("active");
       })(jQuery);
     }
 
@@ -11,10 +12,14 @@ window.onload = function () {
 
     init();
 
-    button.addEventListener("click", function () {
-      // location.replace("./clark-master/index.html");
+    document.getElementById("go").addEventListener("click", function () {
       location.replace("./mainDash.html");
     });
+
+    // button.addEventListener("click", function () {
+    //   // location.replace("./clark-master/index.html");
+    //   location.replace("./mainDash.html");
+    // });
   };
 
   let model, webcam, maxPredictions;

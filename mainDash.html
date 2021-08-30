@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./grid.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <!-- 부트스트랩과 폰트 -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body onload="initClock()">
@@ -64,6 +66,7 @@
         <!-- safety cam start -->
         <div class="safety-cam" id = "safety-cam">
             <div class="rectangle_2"></div>
+
             <div class="camera-box">
                 <i class="fas fa-camera" id="camera"> 안심 카메라</i>
             </div>
@@ -72,6 +75,11 @@
 
         <!-- nfc section -->
         <div class="nfc-app" id="nfc-app">
+            <div class="inner_nfc">
+                <button type="button" class="camBtn" data-toggle="modal" data-target="#exampleModal">
+                    Safety Camera
+                </button>
+            </div>
             <div class="rectangle_3"></div>
             <ul id="list"></ul>
         </div>
@@ -82,7 +90,22 @@
         </div>
 
 
-
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Safety Camera</h5>
+                <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body" style="margin: auto;">
+                <!-- <iframe id="safetyCam" src="http://192.168.0.105:81/stream" style="width:100s%; height:250px; "></iframe> -->
+                </div>
+            </div>
+            </div>
+        </div>
 
     </div>
 
@@ -108,4 +131,9 @@
 <script src="./touch-tts.js"></script>
 <!-- jquery -->
 <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+
+<!-- bootstrap core javascript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </html>

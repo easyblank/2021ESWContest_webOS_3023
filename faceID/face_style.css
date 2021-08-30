@@ -69,21 +69,28 @@ canvas {
 }
 
 #go {
+  display: none;
+  z-index: 20;
   border-radius: 4px;
-  background-color: #dfce9c;
+  background-color: #fdc315;
   color: black;
   font-weight: bolder;
   /* font-size: 3rem; */
   padding: 10px;
-  /* padding-top: 12px; */
-  /* padding-bottom: 12  px; */
-  /* padding-left: 7px; */
-  /* padding-right: 7px; */
+}
+
+#go.active {
+  display: block;
+}
+
+#go:hover {
+  cursor: pointer;
 }
 
 #go:disabled {
-  background-color: #fdc315;
+  background-color: #dfce9c;
 }
+
 
 
 p {
