@@ -1,0 +1,91 @@
+:root {
+  --background-black: #151515;
+  --font-white: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: var(--background-black);
+  color: var(--font-white);
+}
+
+main {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, -50%);
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+div#webcam-container {
+  margin-bottom: 2rem;
+}
+
+canvas {
+  /* z-index: -2; */
+  /* box-shadow: 0 0 10px; */
+  border-radius: 30px;
+}
+
+#logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  width: 50vw;
+  height: 40vh;
+  margin: auto;
+  background-image: url("./logo_2.gif");
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* background-color: gray; */
+  background-position: center;
+  z-index: 10;
+}
+
+#logo.active {
+  /* display: none; */
+  transform: translate(-100%, -50%);
+  transition: all 0.8s ease 0s;
+}
+
+#go {
+  border-radius: 4px;
+  background-color: #dfce9c;
+  color: black;
+  font-weight: bolder;
+  /* font-size: 3rem; */
+  padding: 10px;
+  /* padding-top: 12px; */
+  /* padding-bottom: 12  px; */
+  /* padding-left: 7px; */
+  /* padding-right: 7px; */
+}
+
+#go:disabled {
+  background-color: #fdc315;
+}
+
+
+p {
+  font-size: 2rem;
+}
