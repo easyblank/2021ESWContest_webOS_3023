@@ -248,6 +248,7 @@ cloudDB.settings({ timestampsInSnapshots: true });
 
 //<ul>에 요소들을 추가할 준비를 한다
 const list = document.getElementById('list');
+// const list_2 = document.getElementById('list_2');
 
 //firestore에서 값을 받아 온 뒤 변수에 저장하고 append하는 함수
 function renderList(doc) {
@@ -268,6 +269,7 @@ function renderList(doc) {
 
 
     list.appendChild(idForDiv);
+    // list_2.appendChild(idForDiv);
 
 }
 
@@ -277,6 +279,9 @@ cloudDB.collection('nfcTag').onSnapshot((snapshot) => {
     while ( list.hasChildNodes() ) {
         list.removeChild( list.firstChild );
     }
+    // while ( list_2.hasChildNodes() ) {
+        // list_2.removeChild( list.firstChild );
+    // }
     //새로 쓰기
     snapshot.docs.forEach(doc => {
         renderList(doc);
@@ -302,7 +307,7 @@ cloudDB.collection('nfcTag').onSnapshot((snapshot) => {
 // })
 
 $(document).ready(function(){
-    $('#safety-cam').click(function() {
+    $('#rectangle_2').click(function() {
         $("#datetime").toggleClass("active");
     }, function(){
         $("#datetime").toggleClass("active");
@@ -310,7 +315,7 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $('.nfc-app').click(function() {
+    $('#rectangle_3').click(function() {
         $("#datetime").toggleClass("active");
         $("#safety-cam").toggleClass("active");
     }, function(){
@@ -330,3 +335,30 @@ $(document).ready(function(){
         $(".nfc-app").toggleClass("active");
     });
 });
+
+$(document).ready(function(){
+    $("#inner_cam").click(function(){
+        $("#cam_modal").modal();
+    });
+})
+
+$(document).ready(function(){
+    $("#inner_nfc").click(function(){
+        $("#nfc_modal").modal();
+    });
+})
+
+
+
+let inner_cam = document.getElementById('inner_cam');
+let inner_nfc = document.getElementById('inner_nfc');
+let inner_machine = document.getElementById('inner_machine');
+
+let detail_cam = document.getElementById('detail_cam');
+
+
+inner_cam.addEventListener('click', () => {
+    console.log("default")
+    // defaultPage.setAttribute('style', 'display:none');
+    detail_cam.setAttribute('style', 'display:block');
+})

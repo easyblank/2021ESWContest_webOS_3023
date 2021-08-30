@@ -25,7 +25,7 @@
             <div class="datetime" id="datetime">
 
                 <div class="rectangle_1">
-                    <p>m<br>a<br>i<br>n<br></p>
+                    <div id="main_letter"></div>
                 </div>
 
                 <div class="date" id='date'>
@@ -65,7 +65,18 @@
         </div>
         <!-- safety cam start -->
         <div class="safety-cam" id = "safety-cam">
-            <div class="rectangle_2"></div>
+            <div id="inner_cam">
+
+            </div>
+            <!-- <div id="detail_cam">
+
+            </div> -->
+            <!-- <button type="button" class="camBtn" data-toggle="modal" data-target="#exampleModal">
+                Safety Camera
+            </button> -->
+            <div class="rectangle_2" id="rectangle_2">
+                <div id="safecam_letter"></div>
+            </div>
 
             <div class="camera-box">
                 <i class="fas fa-camera" id="camera"> 안심 카메라</i>
@@ -75,23 +86,27 @@
 
         <!-- nfc section -->
         <div class="nfc-app" id="nfc-app">
-            <div class="inner_nfc">
-                <button type="button" class="camBtn" data-toggle="modal" data-target="#exampleModal">
-                    Safety Camera
-                </button>
+            <!-- <div class="inner_nfc" id="inner_nfc">
+
+            </div> -->
+            <div class="rectangle_3" id="rectangle_3">
+                <div id="tags_letter"></div>
             </div>
-            <div class="rectangle_3"></div>
             <ul id="list"></ul>
         </div>
 
         <!-- noti section -->
         <div class="machine" id="machine">
-
+                <!-- 노티에서 리스트 받아오기 예제 -->
+                <div class="noti">
+                    <ul id="cam1-list"></ul>
+                    <ul id="cam2-list"></ul>
+                </div>
         </div>
 
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="cam_modal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -102,6 +117,22 @@
                 </div>
                 <div class="modal-body" style="margin: auto;">
                 <!-- <iframe id="safetyCam" src="http://192.168.0.105:81/stream" style="width:100s%; height:250px; "></iframe> -->
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="nfc_modal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tag List</h5>
+                <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body" style="margin: auto;">
+                    <ul id="list_2"></ul>
                 </div>
             </div>
             </div>
@@ -126,6 +157,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<!-- 제이쿼리 -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
 <!-- for blind people -->
 <script src="./touch-tts.js"></script>
@@ -135,5 +167,11 @@
 <!-- bootstrap core javascript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- 파이어베이스 컨피그 -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<!-- 토스트 자바스크립트 -->
+<script src="./noti.js"></script>
 
 </html>

@@ -8,8 +8,8 @@
 
 :root {
     --main-yellow: #fdc315;
-    --first-gray: #3d3d3d;
-    --second-gray: #9e9e9e;
+    --first-gray: #9e9e9e;
+    --second-gray: #3d3d3d;
 }
 
 .body {
@@ -42,10 +42,21 @@
 .rectangle_1 {
     position: absolute;
     right: -50px;
-    background-color: black;
     width: 50px;
     height: 150px;
     border-radius: 0px 20px 20px 0px / 0px 20px 20px 0px;
+    background-color: black;
+}
+
+
+#main_letter {
+    width: 70%;
+    height: 100%;
+    background-color: black;
+    background-image: url("./main.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 .rectangle_2 {
@@ -56,6 +67,20 @@
     width: 50px;
     height: 150px;
     border-radius: 0px 20px 20px 0px / 0px 20px 20px 0px;
+}
+
+#tags_letter {
+    width: 70%;
+    height: 100%;
+    background-color: var(--second-gray);
+    background-image: url("./tags.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.rectangle_2:hover {
+    cursor: pointer;
 }
 
 .rectangle_3 {
@@ -70,6 +95,20 @@
     border-radius: 0px 20px 20px 0px / 0px 20px 20px 0px;
 }
 
+#safecam_letter {
+    width: 80%;
+    height: 80%;
+    transform: translate(0%, 13%);
+    background-color: var(--first-gray);
+    background-image: url("./safecam.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.rectangle_3:hover {
+    cursor: pointer;
+}
 
 /* digital clock css */
 #datetime {
@@ -125,21 +164,46 @@
     border-radius: 3px;
 }
 
+/* 모달 */
+
 /* safety cam css */
+#inner_cam {
+    /* display: none; */
+    width: 45vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    position: absolute;
+    /* background-color: blue; */
+    z-index: 3;
+}
+
+#detail_cam {
+    display: none;
+    position: absolute;
+    width: 45vw;
+    height: 45vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: blueviolet;
+    z-index: 3;
+}
+
 #safety-cam {
     /* display: none; */
     width: 50vw;
     height: 100vh;
     position: absolute;
     left: 15vw;
-    background-color: #3d3d3d;
+    background-color: var(--first-gray);
     z-index: 3;
     transition: all 0.4s ease 0s;
 }
 
 #safety-cam.active {
     /* left: -25vw; */
-    left: 0;
+    left: -10vw;
     transition: all 0.4s ease 0s;
 }
 
@@ -276,8 +340,9 @@
     left: 0;
     top: 0;
     position: absolute;
-    background-color: blue;
+    background-color: var(--first-gray);
     z-index: 3;
+    opacity: 0.1;
 }
 
 .camBtn {
@@ -286,6 +351,7 @@
 
 
 .nfc-app {
+    color: var(--main-yellow);
     background-color: var(--second-gray);
     position: absolute;
     left: 30vw;
@@ -298,11 +364,9 @@
 
 .nfc-app.active {
     /* left: -25vw; */
-    left: 17vw;
+    left: 5vw;
     transition: all 0.4s ease 0s;
 }
-
-
 
 .nfc-app {
     padding-top: 10vh;
@@ -378,4 +442,28 @@
     height: 100vh;
     left: 51vw;
     z-index: 1;
+}
+
+.noti {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    color: black;
+    padding-top: 10vh;
+    padding-left: 20vw;
+}
+
+.noti ul {
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+.noti ul p {
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.noti ul li {
+    font-weight: 200;
+    padding-bottom: 10px;
 }
