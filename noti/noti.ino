@@ -44,7 +44,9 @@ static esp_err_t cam_err;
 static esp_err_t card_err;
 char strftime_buf[64];
 long file_number = 0;
-
+const int Analog_channel_pin= 12;
+int ADC_VALUE = 0;
+int voltage_value = 0;
 // Select camera model
 //#define CAMERA_MODEL_WROVER_KIT
 //#define CAMERA_MODEL_ESP_EYE
@@ -65,7 +67,7 @@ IPAddress subnet(255, 255, 255, 0);
 
 
 // Replace with your MQTT credentials
-const char* mqtt_server = "192.169.0.16";      
+const char* mqtt_server = "192.168.0.16";      
 const char* mqtt_user = "melonmusk";
 const char* mqtt_password = "sais-iot";
 const char* mqtt_client_id = "noti_1";   //optional
@@ -77,7 +79,7 @@ PubSubClient client(espClient);
 
 // Deep Sleep definitions (change sleep time here)
 #define uS_TO_S_FACTOR 1000000ULL  /* Conversion factor for micro seconds to seconds */
-#define TIME_TO_SLEEP  15        /* Time ESP32 will go to sleep (in seconds) */
+#define TIME_TO_SLEEP  1        /* Time ESP32 will go to sleep (in seconds) */
 
 RTC_DATA_ATTR int bootCount = 0;
 
@@ -137,18 +139,25 @@ void setup() {
   Serial.println("Boot number: " + String(bootCount));
 
   //Print the wakeup reason for ESP32
-  print_wakeup_reason();
+  print_wakeup_reason();  
 
-
+  tft.begin();
+  tft.setRotation(3);  // 0 & 2 Portrait. 1 & 3 landscape
+  tft.fillScreen(TFT_BLACK);
+  tft.setCursor(35,55);
+  tft.setTextColor(TFT_WHITE);
+  tft.setTextSize(1);
+  tft.println("noti");
   // Connect to Wi-Fi
- WiFi.config(ip, gateway, subnet);
+ //WiFi.config(ip, gateway, subnet);
 
    WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
-    WiFi.begin(ssid, password);
-    Serial.println("Connecting to WiFi...");    
-    delay(2000);
-}
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("WiFi connected");
 
   //testline
   Serial.println("Connecting to MQTT");
@@ -158,7 +167,7 @@ void setup() {
   client.connect(mqtt_client_id, mqtt_user, mqtt_password);
 
   //testline
-  Serial.println("Mit MQTT verbunden");
+  Serial.println("Successfully Connected To MQTT");
 
 
   // checking SPI Flash File System 
@@ -203,13 +212,14 @@ void setup() {
   config.pixel_format = PIXFORMAT_JPEG;
 
   if (psramFound()) {
-    config.frame_size = FRAMESIZE_UXGA;
+    config.frame_size = FRAMESIZE_QVGA;
     config.jpeg_quality = 10;
     config.fb_count = 2;
   } else {
-    config.frame_size = FRAMESIZE_SVGA;
+    config.frame_size = FRAMESIZE_QVGA;
     config.jpeg_quality = 12;
     config.fb_count = 1;
+    //config.vflip = 1;
   }
   // Camera init
   esp_err_t err = esp_camera_init(&config);
@@ -232,11 +242,11 @@ void setup() {
     request->send(SPIFFS, FILE_PHOTO, "image/jpg", false);
   });
 
-
+  
   // start server and take photo
   server.begin();
   Serial.println("TakePhoto=1");
-  takeNewPhoto = true; 
+  
 }
 
 
@@ -247,7 +257,7 @@ void loop() {
     takeNewPhoto = false;
   }
   delay(1);
-  esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
+  //esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
   Serial.println("Setup ESP32 to sleep for " + String(TIME_TO_SLEEP) +
   " Seconds");
 
@@ -255,18 +265,19 @@ void loop() {
   char Buffer[]="abc";              //awake state "abc"
   Serial.println(Buffer);
   client.publish("TestTopic_Count", Buffer);  //enter personal MQTT-Topic
-  Serial.println("Wait 15 second until image download");
-  delay(15000);                 //wait 15s so the image can be downloaded
+  Serial.println("Wait 0.5 second until image download");
+  delay(500);                 //wait 15s so the image can be downloaded
   Buffer[1] ='d';               //asleep state "adc"
   Serial.println(Buffer);
   client.publish("TestTopic_Count", Buffer);  //enter personal MQTT-Topic
-  delay(200);
-
-  // go into deep sleep
-  Serial.println("Going to sleep now");
-  Serial.flush(); 
-  esp_deep_sleep_start();
-  Serial.println("This will never be printed");
+  //delay(100);
+  //int sensorValue = analogRead(Analog_channel_pin);
+  //if(sensorValue > 20){
+  //  char SoundBuffer[]="trig";
+  //  client.publish("TestTopic_Sound", SoundBuffer);
+  //}
+  takeNewPhoto = true; 
+  //ADC_VALUE = analogRead(Analog_channel_pin);
 }
 
 // Check if photo capture was successful
@@ -286,7 +297,7 @@ void capturePhotoSaveSpiffs( void ) {
     Serial.println("Taking a photo...");
 
     fb = esp_camera_fb_get();
-    fex.drawJpg((const uint8_t*)fb->buf, fb->len, 0, 6);
+    
     if (!fb) {
       Serial.println("Camera capture failed");
       return;
@@ -310,8 +321,8 @@ void capturePhotoSaveSpiffs( void ) {
     }
     // Close the file
     file.close();
+  fex.drawJpg((const uint8_t*)fb->buf, fb->len, 0, 0);
     esp_camera_fb_return(fb);
-
     // check if file has been correctly saved in SPIFFS
     ok = checkPhoto(SPIFFS);
   } while ( !ok );

@@ -1,9 +1,9 @@
 // See SetupX_Template.h for all options available
 
 #define ILI9341_DRIVER
-
-#define _mosi 13
-#define _sclk 14
+//#define _miso 12
+#define TFT_MOSI 13
+#define TFT_SCLK 14
 #define TFT_CS   15  // Chip select control pin D8
 #define TFT_DC   2  // Data Command control pin
 #define TFT_RST  12  // Reset pin (could connect to NodeMCU RST, see next line)
