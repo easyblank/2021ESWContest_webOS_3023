@@ -106,7 +106,7 @@
             <!-- <a class="js-scroll-trigger" href="./NFC.html">NFC tags</a> -->
             <a>NFC tags</a>
           </li>
-          <li class="sidebar-nav-item">
+          <li class="sidebar-nav-item" id="noti-bar">
             <a>Machine</a>
           </li>
           <li class="sidebar-nav-item">
@@ -125,8 +125,18 @@
 
     <!-- NFC 태그 리스트 화면 -->
     <div class="nfc-app" id="show-nfc">
-      <h1>Tag List</h1>
+      <!-- <h1>Tag List</h1> -->
       <ul id="list"></ul>
+    </div>
+
+    <!-- 노티 리스트 화면 -->
+
+    <div class="content" id="noti-machine">
+      <!-- 노티에서 리스트 받아오기 예제 -->
+      <div class="noti">
+          <ul id="cam1-list"></ul>
+          <ul id="cam2-list"></ul>
+      </div>
     </div>
 
     <!-- 날씨 리스트 -->
@@ -204,7 +214,12 @@
   <!-- bootstrap core javascript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+  <!-- 파이어베이스 컨피그 -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <!-- 노티 -->
+  <script src="./noti.js"></script>
 
 </body>
 </html>

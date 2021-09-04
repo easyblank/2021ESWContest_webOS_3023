@@ -13,6 +13,13 @@
         $(this).toggleClass("active");
     });
 
+
+    $("#noti-bar").click(function(e) {
+        e.preventDefault();
+        $("#noti-machine").toggleClass("active");
+        $(this).toggleClass("active");
+    });
+
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
           var target = $(this.hash);
