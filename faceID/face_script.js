@@ -12,9 +12,7 @@ window.onload = function () {
 
     init();
 
-    document.getElementById("go").addEventListener("click", function () {
-      location.replace("./mainDash.html");
-    });
+
 
     // button.addEventListener("click", function () {
     //   // location.replace("./clark-master/index.html");
@@ -43,30 +41,52 @@ window.onload = function () {
 
     // append elements to the DOM
     document.getElementById("webcam-container").appendChild(webcam.canvas);
-
-    for (let i = 0; i < maxPredictions; i++) {
-      // and class labels
-
-      // jiwon
-      // const classPrediction = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-      // labelContainer.childNodes[i].innerHTML = classPrediction;
-    }
   }
 
   async function loop() {
     webcam.update(); // update the webcam frame
-    var probability = await predict();
-    if (probability >= 0.95) {
+    var probability_1 = await predict_1();
+    var probability_2 = await predict_2();
+    if (probability_1 >= 0.995 || probability_2 >= 0.995) {
       button.disabled = false;
     } else {
       button.disabled = true;
     }
     window.requestAnimationFrame(loop);
+
+
+    document.getElementById("go").addEventListener("click", function () {
+      // console.log("click")
+      // console.log(predict_1)
+      // console.log(predict_2)
+      if(probability_1 > 0.995 && probability_2 < 0.2) {
+        console.log("1")
+        // location.replace("./mainDash.html");
+        document.location.href= "./mainDash.html";
+      } else if (probability_2 > 0.995 && probability_1 < 0.2){
+        console.log("2")
+        // location.replace("./mainDash_2.html");
+        document.location.href= "./mainDash_2.html";
+      }
+
+    });
+
+
+    // console.log(probability_1);
+    // console.log(probability_2);
   }
 
+
+
   // run the webcam image through the image model
-  async function predict() {
+  async function predict_1() {
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
     return prediction[0].probability;
+  }
+
+  async function predict_2() {
+    // predict can take in an image, video or canvas html element
+    const prediction = await model.predict(webcam.canvas);
+    return prediction[1].probability;
   }

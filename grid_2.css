@@ -420,14 +420,14 @@
 
 
 .nfc-app ul p {
-    font-size: 1.5em;
-    font-weight: 500;
+    font-size: 2.5em;
+    font-weight: 600;
     padding-bottom: 10px;
     border-bottom: solid;
 }
 
 .nfc-app ul li {
-    font-size: 1.2em;
+    font-size: 2em;
     font-weight: 200;
     padding-bottom: 30px;
 }
@@ -509,14 +509,14 @@
 }
 
 .noti ul p {
-    font-size: 1.5em;
-    font-weight: 500;
+    font-size: 3.5em;
+    font-weight: 700;
     padding-bottom: 10px;
     border-bottom: solid;
 }
 
 .noti ul li {
-    font-size: 1.2em;
-    font-weight: 200;
+    font-size: 2.5em;
+    font-weight: 500;
     padding-bottom: 30px;
 }

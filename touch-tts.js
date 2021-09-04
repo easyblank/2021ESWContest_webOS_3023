@@ -309,8 +309,10 @@ cloudDB.collection('nfcTag').onSnapshot((snapshot) => {
 $(document).ready(function(){
     $('#rectangle_2').click(function() {
         $("#datetime").toggleClass("active");
+        $(".camera-box").toggleClass("active");
     }, function(){
         $("#datetime").toggleClass("active");
+        $(".camera-box").toggleClass("active");
     });
 });
 
@@ -318,9 +320,11 @@ $(document).ready(function(){
     $('#rectangle_3').click(function() {
         $("#datetime").toggleClass("active");
         $("#safety-cam").toggleClass("active");
+        $(".nfc-app ul").toggleClass("active");
     }, function(){
         $("#datetime").toggleClass("active");
         $("#safety-cam").toggleClass("active");
+        $(".nfc-app ul").toggleClass("active");
     });
 });
 
@@ -329,10 +333,12 @@ $(document).ready(function(){
         $("#datetime").toggleClass("active");
         $("#safety-cam").toggleClass("active");
         $(".nfc-app").toggleClass("active");
+        $(".noti ul").toggleClass("active");
     }, function(){
         $("#datetime").toggleClass("active");
         $("#safety-cam").toggleClass("active");
         $(".nfc-app").toggleClass("active");
+        $(".noti ul").toggleClass("active");
     });
 });
 
