@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car Dashboard</title>
+  <meta charset="UTF-8">
+
+  <!-- css[v] -->
+  <link href="./grid.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.7.0/css/ol.css" type="text/css">
+  <style>
+
+  </style>
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.7.0/build/ol.js"></script>
+
+  <!-- 부트스트랩과 폰트[v] -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+  <!-- script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- 시계, 날씨 css -->
+  <link rel="stylesheet" href="./app.css">
+
+
+</head>
+
+
+<body onload="initClock()">
+  <!-- 지도[v] -->
+  <div id="map" class="map"></div>
+  
+  
+  <!-- 하단바 생성 메뉴 토글[v] -->
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  
+  <!-- 하단바 메뉴[v] -->
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item" id="nfc-tag">
+        <a>NFC tags</a>
+      </li>
+      <li class="sidebar-nav-item" id="noti-bar">
+        <a>Machine</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <button type="button" class="camBtn" data-toggle="modal" data-target="#exampleModal">
+          Safety Camera
+        </button>
+      </li>
+    </ul>
+  </nav>
+  
+  
+  
+  <!-- NFC 태그 리스트 화면 [v]-->
+  <div class="nfc-app" id="show-nfc">
+    <ul id="list"></ul>
+  </div>
+  
+  <!-- 노티 리스트 화면[v] -->
+  <div class="content" id="noti-machine">
+    <div class="noti">
+      <ul id="cam1-list"></ul>
+      <ul id="cam2-list"></ul>
+    </div>
+  </div>
+  
+  <!--사이드바 메뉴[v]-->
+  <!-- digital clock start -->
+  <div id="mymymy">
+    <div class="datetime" id="datetime">
+      <div class="date" id='date'>
+        <span id="year">Year</span>년
+        <span id="month">Month</span>
+        <span id="daynum">00</span>
+        <span id="dayname">Day</span>
+      </div>
+      <div class="time">
+        <span id="hour">00</span>:
+        <span id="minutes">00</span>
+        <span id="period">오전</span>
+      </div>
+    </div>
+    <!-- digital clock end -->
+  
+    <!-- weather start -->
+    <div class="weather" id="weather">
+      <div class="notification"> </div>
+      <div class="weather-container">
+        <div class="weather-icon">
+          <img src="./icons/unknown.png" alt="">
+        </div>
+        <div class="temperature-value">
+          <p id="temp">- °<span>C</span></p>
+        </div>
+        <div class="temperature-description">
+          <p id="weath"> - </p>
+        </div>
+      </div>
+    </div>
+    <!-- weather end -->
+  </div>
+  
+  
+  
+  <!-- safety cam Modal[v] -->
+  <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Safety Camera</h5>
+          <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="margin: auto;">
+          <!-- 사진으로 임시 대체 -->
+          <img src="cam_2.jpeg" width="400">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- firebase config [v]-->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+  <script src="./app.js"></script>
+
+  <!-- bootstrap core javascript[v] -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- 노티 토스트 알림 미포함 -->
+</body>
+</html>
