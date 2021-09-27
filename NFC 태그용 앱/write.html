@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Page</title>
+    <link rel="stylesheet" href="write.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="shortcut icon" type="image⁄x-icon" href="./icon.png">
+   
+</head>
+<body>
+    <main>
+        <div>
+            제품명: <input type="text" id="productName" oninput="Update(this.value, '제품명')">
+        </div>
+        <div>
+            유통기한: <input type="date" id="dDay" oninput="Update(this.value, '유통기한')" >
+        </div>
+        <div>
+            메모: <input type="text" id="memo" oninput="Update(this.value, '메모')" >
+        </div>
+        <div class="submit">
+            <button id=submit class="openBtn" >등록하기</button>
+        </div>
+    </main>
+
+    <!-- modal -->
+    <div class="modal hidden">
+        <div class="bg"></div>
+        <div class="modalBox">
+            <i class="fa fa-times closeBtn"></i>
+            <h3>NFC 태그를 접촉해주세요</h3>
+            <div id="log"></div>
+        </div>
+    </div>
+
+
+    
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="./write.js"></script>
+</body>
+</html>
