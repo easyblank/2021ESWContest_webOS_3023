@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Dashboard</title>
+    <!-- Homedashboard -->
+    <link rel="stylesheet" href="./mainDash_2.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <!-- 부트스트랩과 폰트 -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body onload="initClock()">
+    <!-- main section : clock weather selection -->
+    <div class="main-section">
+    
+        <!--digital clock start-->
+        <div class="datetime" id="datetime">
+    
+            <div class="rectangle_1">
+                <div id="main_letter"></div>
+            </div>
+    
+            <div class="date" id='date'>
+                <span id="year">Year</span>년
+                <span id="month">Month</span>
+                <span id="daynum">00</span>
+                <span id="dayname">Day</span>
+            </div>
+            <div class="time">
+                <span id="hour">00</span>:
+                <span id="minutes">00</span>
+                <span id="period">오전</span>
+            </div>
+    
+            <!-- weather start -->
+            <div class="weather" id="weather">
+                <!-- lacation block에 관한 div. 자세한 사항은 js 주석처리부분 -->
+    
+                <div class="weather-container">
+                    <div class="weather-icon">
+                        <img src="../icons/unknown.png" alt="">
+                    </div>
+                    <div class="temperature-value">
+                        <p id="temp">- °<span>C</span></p>
+                    </div>
+                    <div class="temperature-description">
+                        <p id="weath"> - </p>
+                    </div>
+                    <div class="location">
+                        <p>-</p>
+                    </div>
+                </div>
+            </div>
+            <!-- weather end -->
+        </div>
+        <!--digital clock end-->
+    </div>
+    
+    <!-- safety cam start -->
+    <div class="safety-cam" id="safety-cam">
+        <div id="inner_cam">
+    
+        </div>a
+                </button> -->
+        <div class="rectangle_2" id="rectangle_2">
+            <div id="safecam_letter"></div>
+        </div>
+    
+        <div class="camera-box">
+            <i class="fas fa-camera" id="camera"> 안심 카메라</i>
+            <!-- <iframe id="safetyCam" src="http://172.20.10.7/stream" style="width:100%; height:250px; display:none;"></iframe> -->
+        </div>
+    </div>
+    
+    
+    <!-- nfc section -->
+    <div class="nfc-app" id="nfc-app">
+        <!-- <div class="inner_nfc" id="inner_nfc">
+    
+                </div> -->
+        <div class="rectangle_3" id="rectangle_3">
+            <div id="tags_letter"></div>
+        </div>
+        <div class="scroll">
+            <ul id="list"></ul>
+        </div>
+    </div>
+    
+    <!-- noti section -->
+    <div class="machine" id="machine">
+        <div id="machine_letter"></div>
+        <!-- 노티에서 리스트 받아오기 예제 -->
+        <div class="noti">
+            <ul id="cam1-list"></ul>
+            <ul id="cam2-list"></ul>
+        </div>
+    </div>
+    
+    
+    <!-- Modal -->
+    
+    <div class="modal fade" id="nfc_modal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tag List</h5>
+                    <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="margin: auto;">
+                    <ul id="list_2"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </body>
+    <!-- firebase cdn -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <!-- bootstrap core javascript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- for blind people -->
+    <script src="./main.js"></script>
+    
+    </html>

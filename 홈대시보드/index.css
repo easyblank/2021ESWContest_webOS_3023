@@ -1,0 +1,91 @@
+:root {
+  --background-black: #151515;
+  --font-white: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: var(--background-black);
+  color: var(--font-white);
+}
+
+main {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, -50%);
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+div#webcam-container {
+  margin-bottom: 2rem;
+}
+
+canvas {
+  border-radius: 30px;
+}
+
+#logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 40vh;
+  margin: auto;
+  background-image: url("./img/logo_2.gif");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: 10;
+}
+
+#logo.active {
+  /* display: none; */
+  transform: translate(-100%, -50%);
+  transition: all 0.8s ease 0s;
+}
+
+#go {
+  display: none;
+  z-index: 20;
+  border-radius: 4px;
+  background-color: #fdc315;
+  color: black;
+  font-weight: bolder;
+  padding: 10px;
+}
+
+#go.active {
+  display: block;
+}
+
+#go:hover {
+  cursor: pointer;
+}
+
+#go:disabled {
+  background-color: #dfce9c;
+}
+
+
+
+p {
+  font-size: 2rem;
+}
